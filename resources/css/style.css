@@ -396,6 +396,30 @@ section.transferencias h2{
     text-align: left;
 }
 
+#SPV{
+    display: none;
+}
+
+#service{
+    display: none;
+}
+
+#telecom{
+    display: none;
+}
+
+.department h3{
+    color: #000;    
+    font-size: 24px;
+    text-align: center;
+    margin-top: 0;
+    padding-top: 8px;
+    padding-bottom: 12px;
+    font-style: normal;
+    line-height: 2.5;
+    font-weight: 800;
+}
+
 section.trotinetes .menu span img{
     margin-top: 15px;
     width: 80%;

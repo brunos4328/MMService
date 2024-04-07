@@ -43,27 +43,47 @@
             </div>
         </section>
 
-        
+        <section class="department">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <a onclick="spvFunction()" target="_blank" id="SPV_menu">
+                            <span>
+                                <img src="resources/imagens/logos/spv.png" alt="SPV">
+                            </span>
+                        </a>
+                        <a href="">
+                            <h3>SPV</h3>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a onclick="serviceFunction()" target="_blank" id="service_menu">
+                            <span>
+                                <img src="resources/imagens/logos/service.png" alt="Service">
+                            </span>
+                        </a>
+                        <a href="">
+                            <h3>Service</h3>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a onclick="telecomFunction()" target="_blank" id="telecom_menu">
+                            <span>
+                                <img src="resources/imagens/logos/telecom.png" alt="Telecom">
+                            </span>
+                        </a>
+                        <a href="">
+                            <h3>Telecom</h3>
+                        </a>
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+            </div>
+        </section>
 
-        <section class="transferencias">
+        <section id="SPV" class="transferencias">
             <div class="menu">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <a href="resources/files/Folha_de_Testes.pdf" target="_blank">
-                                <span>
-                                    <img src="resources/imagens/menu/folha-de-teste.jpg" alt="Folha de Teste" class="zoom shadow">
-                                </span>
-                            </a>
-                        </div>
-                        <div class="col-md-5">
-                            <a href="resources/files/Folha_de_Testes.pdf" target="_blank">
-                                <h2>
-                                    Folha de testes telemovel
-                                </h2>
-                            </a>
-                        </div>
-                    </div>
                     <div class="row">
                         <div class="col-md-2">
                             <a href="resources/files/DefensaConsumidorPT.pdf" target="_blank">
@@ -77,20 +97,6 @@
                                 <h2>
                                     Formulario segundo ano garantia apple
                                 </h2>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-2">
-                            <a href="resources/files/Orçamento_edit.pdf" target="_blank">
-                                <span>
-                                    <img src="resources/imagens/menu/orcamento.jpg" alt="Pedido de Orcamento" class="zoom shadow">
-                                </span>
-                            </a>
-                        </div>
-                        <div class="col-md-5">
-                            <a href="resources/files/Orçamento_edit.pdf" target="_blank">
-                                <h2>Pedido de Orçamento</h2>
                             </a>
                         </div>
                     </div>
@@ -134,6 +140,50 @@
                             </a>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="service" class="transferencias">
+            <div class="menu">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <a href="resources/files/Folha_de_Testes.pdf" target="_blank">
+                                <span>
+                                    <img src="resources/imagens/menu/folha-de-teste.jpg" alt="Folha de Teste" class="zoom shadow">
+                                </span>
+                            </a>
+                        </div>
+                        <div class="col-md-5">
+                            <a href="resources/files/Folha_de_Testes.pdf" target="_blank">
+                                <h2>
+                                    Folha de testes telemovel
+                                </h2>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <a href="resources/files/Orçamento_edit.pdf" target="_blank">
+                                <span>
+                                    <img src="resources/imagens/menu/orcamento.jpg" alt="Pedido de Orcamento" class="zoom shadow">
+                                </span>
+                            </a>
+                        </div>
+                        <div class="col-md-5">
+                            <a href="resources/files/Orçamento_edit.pdf" target="_blank">
+                                <h2>Pedido de Orçamento</h2>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="telecom" class="transferencias">
+            <div class="menu">
+                <div class="container">
                     <div class="row">
                         <div class="col-md-2">
                             <a href="resources/files/Películas_Fast_Skin.pdf" target="_blank">
@@ -179,5 +229,61 @@
 
     </div>
 </body>
+
+<script>
+    function spvFunction() {
+        var x = document.getElementById("SPV_menu");
+        var y = document.getElementById("service_menu");
+        var z = document.getElementById("telecom_menu");
+        var a = document.getElementById("SPV");
+        var b = document.getElementById("service");
+        var c = document.getElementById("telecom");
+        if (a.style.display === "none") {
+        a.style.display = "block";
+        b.style.display = "none";
+        c.style.display = "none";
+        } else {
+        a.style.display = "none";
+        b.style.display = "none";
+        c.style.display = "none";
+        }
+    }
+
+    function serviceFunction() {
+        var x = document.getElementById("SPV_menu");
+        var y = document.getElementById("service_menu");
+        var z = document.getElementById("telecom_menu");
+        var a = document.getElementById("SPV");
+        var b = document.getElementById("service");
+        var c = document.getElementById("telecom");
+        if (b.style.display === "none") {
+        a.style.display = "none";
+        b.style.display = "block";
+        c.style.display = "none";
+        } else {
+        a.style.display = "none";
+        b.style.display = "none";
+        c.style.display = "none";
+        }
+    }
+
+    function telecomFunction() {
+        var x = document.getElementById("SPV_menu");
+        var y = document.getElementById("service_menu");
+        var z = document.getElementById("telecom_menu");
+        var a = document.getElementById("SPV");
+        var b = document.getElementById("service");
+        var c = document.getElementById("telecom");
+        if (c.style.display === "none") {
+        a.style.display = "none";
+        b.style.display = "none";
+        c.style.display = "block";
+        } else {
+        a.style.display = "none";
+        b.style.display = "none";
+        c.style.display = "none";
+        }
+    }
+</script>
 
 </html>
