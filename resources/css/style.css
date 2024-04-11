@@ -398,14 +398,17 @@ section.transferencias h2{
 
 #SPV{
     display: none;
+    opacity: 0;
 }
 
 #service{
     display: none;
+    opacity: 0;
 }
 
 #telecom{
     display: none;
+    opacity: 0;
 }
 
 .department h3{
@@ -599,6 +602,25 @@ form.login .login-btn{
     background: transparent;
     color: #fff;
     font-size: 16px;
+}
+
+/* 
+KeyFrames
+*/
+
+@Keyframes fade{
+    0% {
+        opacity: 0;
+        transform: translatex(0px) translatey(0px);
+    }
+    50% {
+        opacity: 1;
+        transform: translatex(100px) translatey(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translatex(100px) translatey(100px);
+    }
 }
 
 /* 
