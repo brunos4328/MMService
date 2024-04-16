@@ -49,7 +49,7 @@
                     <div class="col-md-3">
                         <a onclick="spvFunction()" target="_blank" id="SPV_menu">
                             <span>
-                                <img src="resources/imagens/logos/spv.png" alt="SPV">
+                                <img src="resources/imagens/logos/spv.png" alt="SPV" class="zoom">
                             </span>
                         </a>
                         <a href="">
@@ -59,7 +59,7 @@
                     <div class="col-md-3">
                         <a onclick="serviceFunction()" target="_blank" id="service_menu">
                             <span>
-                                <img src="resources/imagens/logos/service.png" alt="Service">
+                                <img src="resources/imagens/logos/service.png" alt="Service" class="zoom">
                             </span>
                         </a>
                         <a href="">
@@ -69,7 +69,7 @@
                     <div class="col-md-3">
                         <a onclick="telecomFunction()" target="_blank" id="telecom_menu">
                             <span>
-                                <img src="resources/imagens/logos/telecom.png" alt="Telecom">
+                                <img src="resources/imagens/logos/telecom.png" alt="Telecom" class="zoom">
                             </span>
                         </a>
                         <a href="">
@@ -240,7 +240,7 @@
         var a = document.getElementById("SPV");
         var b = document.getElementById("service");
         var c = document.getElementById("telecom");
-        if (a.style.opacity === "0") {
+        if (a.style.display === "" || a.style.display === "none") {
         a.style.display = "block";
         a.style.animation = "fade 1s linear forwards";
         b.style.display = "none";
@@ -260,7 +260,7 @@
         var a = document.getElementById("SPV");
         var b = document.getElementById("service");
         var c = document.getElementById("telecom");
-        if (b.style.display === "none") {
+        if (b.style.display === "" || b.style.display === "none") {
         a.style.display = "none";
         b.style.display = "block";
         b.style.animation = "fade 1s linear forwards";
@@ -280,7 +280,7 @@
         var a = document.getElementById("SPV");
         var b = document.getElementById("service");
         var c = document.getElementById("telecom");
-        if (c.style.display === "none") {
+        if (c.style.display === "" || c.style.display === "none") {
         a.style.display = "none";
         b.style.display = "none";
         c.style.display = "block";

@@ -141,6 +141,11 @@ header.smartphone div:last-child p{
 
 .navbar-content{
     margin-top: 20px;
+    display: inline-block;
+}
+
+.navbar-content a:first-child{
+    padding-right: 15px;
 }
 
 .navbar-content span{
@@ -226,6 +231,10 @@ i.fa-download{
 Logotipo
 */
 
+.b_img{
+    width: 75%;
+}
+
 img.samsung{
     width: 70% !important;
     margin-top: -45px;
@@ -286,6 +295,32 @@ h5.generic{
     z-index: 999;
 }
 
+.br_animation{
+    border-radius: 100px;
+    transition: border-radius 1.5s ease;
+}
+
+.br_animation:hover{
+    border-radius: 0;
+    display: inline-block;
+    z-index: 999;
+}
+
+hr.vertical{
+    height: 60%;
+    border: none;
+    border-left: 1px solid #efefef;
+    margin: 0;
+}
+
+.vl{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+}
+
+
 .p_row{
     padding: 16px 0 16px 0;
 }
@@ -320,7 +355,13 @@ h5.generic{
     font-size: 36px;
     font-weight: 700;
     color: #000;
+}
 
+.cross_selling h1{
+    text-align: center;
+    font-weight: 500p;
+    color: #000;
+    margin-top: 60px;
 }
 
 .reparação a img{
@@ -384,8 +425,17 @@ header.smartphone{
     vertical-align: middle;
 }
 
+header.cross_selling{
+    height: 315px !important;
+    vertical-align: middle;
+}
+
 header.smartphone div:last-child img{
     width: 50%;
+}
+
+header.cross_selling div:last-child img{
+    width: 60%;
 }
 
 section.transferencias div.row{
@@ -519,6 +569,18 @@ section.personalizacoes img{
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+div.cross_selling section.department div.row:first-child span img{
+    width: 77%;
+}
+
+div.cross_selling section.department div.row:last-child span img{
+    width: 50%;
+}
+
+div.cross_selling section.department div.row div{
+    text-align: center;
 }
 
 /* 
