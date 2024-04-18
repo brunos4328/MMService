@@ -88,6 +88,12 @@ header p{
     color: #767676;
 }
 
+header li{
+    font-size: 18px;
+    font-weight: 700;
+    color: #767676;
+}
+
 
 header h3{
     color: #fff;    
@@ -104,11 +110,6 @@ header.index div.container{
     margin: 0;
     width: 100%
 }
-
-header.smartphone div:last-child p{
-    margin-top: 65px;
-}
-
 
 .navbar{
     background-color: #fff;
@@ -421,7 +422,7 @@ header.apple{
 }
 
 header.smartphone{
-    height: 315px !important;
+    height: 365px !important;
     vertical-align: middle;
 }
 
