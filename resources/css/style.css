@@ -447,6 +447,25 @@ section.transferencias h2{
     text-align: left;
 }
 
+div.transferencias section#telecom div.row:first-child h2{
+    color: #000;
+    font-weight: 700;
+    text-align: left;
+}
+
+section.transferencias p{
+    color: #000;
+    font-size: 22px;
+    font-weight: 400;
+    text-align: left;
+    padding-top: 10px;
+}
+
+section.transferencias i{
+    font-size: 160px;
+    color: red;
+}
+
 #SPV{
     display: none;
     opacity: 0;
@@ -595,6 +614,62 @@ iframe{
     height: 29vw;
     margin: 0 auto;
     margin-bottom: 30px;
+}
+
+section.computador .table-wrap thead td{
+    background-color: #c00000;
+}
+
+section.computador .table-wrap{
+    white-space: nowrap;
+
+}
+
+section.computador .table-wrap table{
+    margin: 0 auto;
+    align-self: center;
+    text-align: center;
+    margin-bottom: 100px;
+
+}
+
+section.computador .table-wrap tr, td, th{
+    border: 1px solid #333;
+    padding: 5px 5px !important;
+    text-align: center;
+}
+
+section.computador .table-wrap h4, h3{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 400;
+    color: #000;
+}
+
+section.computador .table-wrap p{
+    text-align: left;
+    font-size: 14px;
+    font-weight: 400;
+    color: #000;
+    margin: 5px 0 5px 0;
+}
+
+section.computador .table-wrap span.table_price, td{
+    text-align: right !important;
+    font-size: 14px;
+    font-weight: 700;
+    color: #000;
+    padding-left: 35px;
+    padding-right: 5px;
+}
+
+section.computador .table-wrap span.table_code{
+    text-align: right;
+    font-size: 14px;
+    font-weight: 400;
+    color: #000;
+    padding-left: 45px;
+    padding-right: 5px;
 }
 
 /* 
