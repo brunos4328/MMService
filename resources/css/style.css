@@ -79,7 +79,7 @@ header.generic{
     background-color: #fff;
     height:100%;
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 50px;
 }
 
 header p{
@@ -307,18 +307,10 @@ h5.generic{
     z-index: 999;
 }
 
-hr.vertical{
-    height: 60%;
-    border: none;
+.border-wrapper{
+    text-align: center;
+    align-self: center;
     border-left: 1px solid #efefef;
-    margin: 0;
-}
-
-.vl{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 200px;
 }
 
 
@@ -344,6 +336,7 @@ hr.vertical{
     color: #000;
     font-size: 30px;
     font-weight: 400;
+    margin-top: 20px;
 }
 
 .titulos{
@@ -371,6 +364,14 @@ float: left;
 
 section.reparacoes .menu .row, .w_row{
     background-color: #fff;
+}
+
+div.reparacoes section.reparacoes div span{
+    text-align: center;
+}
+
+div.reparacoes section.reparacoes div span{
+    width: 65%;
 }
 
 section.smartphone{
@@ -436,7 +437,7 @@ header.smartphone div:last-child img{
 }
 
 header.cross_selling div:last-child img{
-    width: 60%;
+    width: 55%;
 }
 
 section.transferencias div.row{
@@ -527,60 +528,6 @@ section.trotinetes p{
     font-size: 24px;
 }
 
-section.computador h3{
-    height: 40px;
-    font-size: 22px;
-    font-weight: 300;
-    color: #000;
-    text-align: center;
-}
-
-section.computador div.col-md-3 span:first-child{
-    font-size: 24px;
-    font-weight: 300;
-    color: #000;
-    text-align: center;
-    display: inline-block;
-}
-
-section.computador div.col-md-3 span:last-child{
-    font-size: 13px;
-    font-weight: 300;
-    color: #000;
-    text-align: center;
-    display: inline-block;
-}
-
-section.computador div.price_row p{
-    font-size: 68px;
-    font-weight: 300;
-    font-style: normal;
-    line-height: 1;
-    color: #000;
-    text-align: center;
-    display: inline-block;
-}
-
-.price_row{
-    width: 100%;
-    text-align: center;
-}
-
-.desc_row{
-    background-color: #fff;
-    border: 1px solid #efefef;
-    padding: .75rem 1.25rem;
-    margin-bottom: 50px;
-    p{
-        font-size: 14px;
-        color: #000;
-        font-weight: 300;
-        vertical-align: middle;
-        text-align: center;
-        margin: 0;
-    }
-}
-
 section.personalizacoes div.col-md-4:first-child img, section.personalizacoes div.col-md-4:nth-child(2) img{
     width: 65%;
 }
@@ -616,16 +563,16 @@ iframe{
     margin-bottom: 30px;
 }
 
-section.computador .table-wrap thead td{
+section.tabela_precos .table-wrap thead td{
     background-color: #c00000;
 }
 
-section.computador .table-wrap{
+section.tabela_precos .table-wrap{
     white-space: nowrap;
 
 }
 
-section.computador .table-wrap table{
+section.tabela_precos .table-wrap table{
     margin: 0 auto;
     align-self: center;
     text-align: center;
@@ -633,20 +580,31 @@ section.computador .table-wrap table{
 
 }
 
-section.computador .table-wrap tr, td, th{
+section.tabela_precos .table-wrap tr, td, th{
     border: 1px solid #333;
     padding: 5px 5px !important;
     text-align: center;
 }
 
-section.computador .table-wrap h4, h3{
+section.tabela_precos .table-wrap h3{
     text-align: center;
-    font-size: 18px;
-    font-weight: 400;
+    font-size: 22px;
+    font-weight: 300;
     color: #000;
+    place-content: center;
+    margin: 0 auto;
 }
 
-section.computador .table-wrap p{
+section.tabela_precos .table-wrap h4{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 300;
+    color: #000;
+    place-content: center;
+    margin: 0 auto;
+}
+
+section.tabela_precos .table-wrap p{
     text-align: left;
     font-size: 14px;
     font-weight: 400;
@@ -654,7 +612,7 @@ section.computador .table-wrap p{
     margin: 5px 0 5px 0;
 }
 
-section.computador .table-wrap span.table_price, td{
+section.tabela_precos .table-wrap span.table_price, td{
     text-align: right !important;
     font-size: 14px;
     font-weight: 700;
@@ -663,7 +621,7 @@ section.computador .table-wrap span.table_price, td{
     padding-right: 5px;
 }
 
-section.computador .table-wrap span.table_code{
+section.tabela_precos .table-wrap span.table_code{
     text-align: right;
     font-size: 14px;
     font-weight: 400;
@@ -766,7 +724,7 @@ Footer
 */
 
 footer{
-    margin-top: 180px;
+    margin-top: 90px;
 }
 
 footer hr{
