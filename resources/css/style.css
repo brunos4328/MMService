@@ -318,6 +318,7 @@ h5.generic{
     padding: 16px 0 16px 0;
 }
 
+
 .menu div.row:first-child{
     margin-bottom: 35px;
 }
@@ -440,6 +441,7 @@ header.cross_selling div:last-child img{
     width: 55%;
 }
 
+
 section.transferencias div.row{
     margin-bottom: 40px;
 }
@@ -448,22 +450,41 @@ section.transferencias h2{
     text-align: left;
 }
 
-div.transferencias section#telecom div.row:first-child h2{
+section.transferencias h4{
+    font-size: 20px;
+    font-weight: 300;
     color: #000;
-    font-weight: 700;
     text-align: left;
 }
 
+
 section.transferencias p{
-    color: #000;
-    font-size: 22px;
+    color: #707070;
+    font-size: 16px;
     font-weight: 400;
     text-align: left;
     padding-top: 10px;
 }
 
 section.transferencias i{
-    font-size: 160px;
+    font-size: 75px;
+    text-align: center;
+    color: #707070;
+    margin-bottom: 20px;
+}
+
+div.transferencias section#telecom div.row:first-child h2{
+    color: #000;
+    font-weight: 700;
+    text-align: left;
+}
+
+section.transferencias div.card-img{
+    text-align: left;
+}
+
+i.alert{
+    font-size: 160px !important;
     color: red;
 }
 
@@ -480,6 +501,10 @@ section.transferencias i{
 #telecom{
     display: none;
     opacity: 0;
+}
+
+div.department-choice{
+    padding-bottom: 75px;
 }
 
 .department h3{
