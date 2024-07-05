@@ -29,16 +29,15 @@
                 </div>
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-3">
-                            <p>Somos serviço técnico autorizado pela Apple. Nossos técnicos da MediaMarkt, formados pela Apple, utilizam peça originais da marca, pelo que podes confiar-nos qualquer dispositivo iPhone.</p>
+                        <div class="col-md-2">
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <span>
                                 <img src="../../resources/imagens/branding/aasp-500x145.png" alt="Apple">
                             </span>
                         </div>
-                        <div class="col-md-3">
-                            <p>Reparações em garantia, fora de garantia e do programa ACS (Apple Care Service)</p>
+                        <div class="col-md-4">
+                            <p>Componentes originais e compatíveis, perde garantia original do equipamento.</p>
                         </div>
                     </div>
                 </div>
@@ -67,8 +66,9 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="tabela">
-                            <input type="text" name="" id="search" placeholder="Search">
-                            <iframe id="iframe" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTpslhstDc7y7ET5Sstep2j32EInOULe68IlC0MX-xxFOPIMWrOV_mKk82CNpe8IIXglx-sk5QIv1q3/pubhtml?gid=472192727&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false&amp;rm=minimal"></iframe>
+                            <span>
+                                <img src="../../resources/imagens/reparacoes/tabela_apple_2024.jpg" alt="Tabela Apple">
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -79,28 +79,5 @@
     </div>
 
 </body>
-
-<script>
-    
-    document.getElementById('search').addEventListener('input', function() {
-    var searchTerm = this.value.toLowerCase();
-    var iframe = document.getElementById('iframe');
-    var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
-    var iframeContent = iframeDocument.body.textContent || iframeDocument.body.innerText;
-
-    var regex = new RegExp(searchTerm, 'gi');
-    var matches = iframeContent.match(regex);
-
-    if (matches) {
-        // Highlighting matched text
-        var highlightedContent = iframeContent.replace(regex, function(match) {
-        return '<span style="background-color: yellow;">' + match + '</span>';
-        });
-
-        iframeDocument.body.innerHTML = highlightedContent;
-    }
-    });
-
-</script>
 
 </html>

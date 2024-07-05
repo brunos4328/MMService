@@ -77,4 +77,27 @@
 
 </body>
 
+<script>
+    
+    document.getElementById('search').addEventListener('input', function() {
+    var searchTerm = this.value.toLowerCase();
+    var iframe = document.getElementById('iframe');
+    var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+    var iframeContent = iframeDocument.body.textContent || iframeDocument.body.innerText;
+
+    var regex = new RegExp(searchTerm, 'gi');
+    var matches = iframeContent.match(regex);
+
+    if (matches) {
+        // Highlighting matched text
+        var highlightedContent = iframeContent.replace(regex, function(match) {
+        return '<span style="background-color: yellow;">' + match + '</span>';
+        });
+
+        iframeDocument.body.innerHTML = highlightedContent;
+    }
+    });
+
+</script>
+
 </html>
