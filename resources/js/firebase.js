@@ -26,6 +26,8 @@ const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 const analytics = getAnalytics(app);
 const  auth = getAuth();
+const AES = require("crypto-js/aes");
+const SHA256 = require("crypto-js/sha256");
 
 login.addEventListener('click',(e)=>{
 
@@ -82,3 +84,12 @@ signUp.addEventListener('click',(e)=>{
         alert(errorMessage);
     });
 })
+
+exports.myfunction = functions.https.onCall((data, context) => {  
+    const someString = "Hello World!";
+    const encryptedString = SHA256(someString);
+    // or
+    const encryptedString = AES(someString);
+  
+    return encryptedString;
+  })
