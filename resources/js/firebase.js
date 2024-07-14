@@ -84,12 +84,3 @@ signUp.addEventListener('click',(e)=>{
         alert(errorMessage);
     });
 })
-
-exports.myfunction = functions.https.onCall((data, context) => {  
-    const someString = "Hello World!";
-    const encryptedString = SHA256(someString);
-    // or
-    const encryptedString = AES(someString);
-  
-    return encryptedString;
-  })
