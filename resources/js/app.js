@@ -3,7 +3,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebas
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
 import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -44,6 +44,8 @@ async function loginUser(email, password) {
 
         if (userData.password === encryptedPassword) {
             console.log("Usuário logado com sucesso:", user.uid);
+            // Redirecionar para outra página após login bem-sucedido
+            window.location.href = "service.html";
         } else {
             console.error("Senha incorreta.");
         }
@@ -53,14 +55,17 @@ async function loginUser(email, password) {
 }
 
 // Event listener para o botão de login
-document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("loginButton").addEventListener("click", (event) => {
-        event.preventDefault();
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
-        loginUser(email, password);
-    });
-});
+const loginButton = document.getElementById("loginButton");
+    if (loginButton) {
+        loginButton.addEventListener("click", (event) => {
+            event.preventDefault();
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            loginUser(email, password);
+        });
+    } else {
+        console.error("Elemento loginButton não encontrado no DOM.");
+    }
 
 // Function to register new user
 async function registerUser(email, username, password) {
@@ -97,11 +102,16 @@ async function registerUser(email, username, password) {
 
 // Register button event listener
         document.addEventListener("DOMContentLoaded", () => {
-            document.getElementById("registerButton").addEventListener("click", (event) => {
-                event.preventDefault();
-                const email = document.getElementById("email").value;
-                const username = document.getElementById("username").value;
-                const password = document.getElementById("password").value;
-                registerUser(email, username, password);
+            const registerButton = document.getElementById("registerButton");
+                if (registerButton) {
+                    registerButton.addEventListener("click", (event) => {
+                        event.preventDefault();
+                        const email = document.getElementById("email").value;
+                        const username = document.getElementById("username").value;
+                        const password = document.getElementById("password").value;
+                        registerUser(email, username, password);
             });
+            } else {
+                console.error("Elemento registerButton não encontrado no DOM.");
+            }
         });

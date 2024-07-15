@@ -1,8 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
-import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+import { getAuth, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -23,14 +21,31 @@ measurementId: "G-PM1NHZMQ1Q"
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
-const analytics = getAnalytics(app);
-const  auth = getAuth();
+const auth = getAuth(app);
 
-// Check authentication state
-onAuthStateChanged(auth, (user) => {
-    if (!user) {
-        // User is not signed in, redirect to login page
-        window.location.href = "login_service.html";
+// Verificar estado de autenticação
+document.addEventListener("DOMContentLoaded", () => {
+    onAuthStateChanged(auth, (user) => {
+        if (!user) {
+            // Se não houver usuário logado, redirecionar para login_service.html
+            window.location.href = "login_service.html";
+        } else {
+            console.log("Usuário logado:", user.uid);
+        }
+    });
+
+    // Event listener para o botão de logout
+    const logoutButton = document.getElementById("logoutButton");
+    if (logoutButton) {
+        logoutButton.addEventListener("click", () => {
+            signOut(auth).then(() => {
+                console.log("Usuário deslogado com sucesso.");
+                window.location.href = "login_service.html";
+            }).catch((error) => {
+                console.error("Erro ao deslogar:", error);
+            });
+        });
+    } else {
+        console.error("Elemento logoutButton não encontrado no DOM.");
     }
 });
