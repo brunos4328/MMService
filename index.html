@@ -10,155 +10,170 @@
     <link rel="stylesheet" href="resources/tools/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="resources/css/style.css">
     <script src="https://kit.fontawesome.com/e37222f816.js" crossorigin="anonymous"></script>
+    <script src="resources/js/button_funciton.js"></script>
 </head>
 
 <body>
     <div class="page-wrapper index">
 
-        <section>
-            <header class="generic index">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-9">
-                            <div class="navbar">
-                                <a href="index.html">
-                                    <span>
-                                        <img src="resources/imagens/branding/logotipo.png" alt="Media Markt">
-                                    </span>
-                                    <p>
-                                        Braga
-                                    </p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="navbar-content">
-                                <a href="cross_selling.html">
-                                    <i class="fa-solid fa-coins fa-bounce" style="color: #ff0000;"></i>
-                                    <p>Cross-Selling</p>
-                                </a>
-                                <a href="transferencias.html">
-                                    <i class="fa-solid fa-download fa-bounce" style="color: #ff0000;"></i>
-                                    <p>Transferências</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </header>
-        </section>
-
-        <section>
-            <div class="menu">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <a href="reparacoes.html">
-                                <span>
-                                    <img src="resources/imagens/menu/reparacoes.jpg" alt="Reparações" class="zoom">
-                                </span>
-                            </a>
-                            <a href="reparacoes.html">
-                                <p>REPARAÇÕES</p>
-                            </a>
-                        </div>
-                        <div class="col-md-3">
-                            <a href="calibracao.html">
-                                <span>
-                                    <img src="resources/imagens/menu/calibracao de tv.jpg" alt="Calibração de TV" class="zoom">
-                                </span>
-                            </a>
-                            <a href="calibracao.html">
-                                <p>CALIBRAÇÃO DA TV</p>
-                            </a>
-                        </div>
-                        <div class="col-md-3">
-                            <a href="copia.html">
-                                <span>
-                                    <img src="resources/imagens/menu/copia de contatos.jpg" alt="copia de contatos" class="zoom">
-                                </span>
-                            </a>
-                            <a href="copia.html">
-                                <p>COPIA DE CONTACTOS</p>
-                            </a>
-                        </div>
-                        <div class="col-md-3">
-                            <a href="">
-                                <span>
-                                    <img src="resources/imagens/menu/personalizacoes.jpg" alt="personalizações" class="zoom">
-                                </span>
-                            </a>
-                            <a href="">
-                                <p>PERSONALIZAÇÃO</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <a href="configuracoes.html">
-                                <span>
-                                    <img src="resources/imagens/menu/configuracoes.jpg" alt="Configurações" class="zoom">
-                                </span>
-                            </a>
-                            <a href="configuracoes.html">
-                                <p>CONFIGURAÇÕES</p>
-                            </a>
-                        </div>
-                        <div class="col-md-3">
-                            <a href="entregas.html">
-                                <span>
-                                    <img src="resources/imagens/menu/entregas.jpg" alt="Entregas" class="zoom">
-                                </span>
-                            </a>
-                            <a href="entregas.html">
-                                <p>ENTREGAS</p>
-                            </a>
-                        </div>
-                        <div class="col-md-3">
-                            <a href="instalacoes.html">
-                                <span>
-                                    <img src="resources/imagens/menu/instalacoes.jpg" alt="Instalações" class="zoom">
-                                </span>
-                            </a>
-                            <a href="instalacoes.html">
-                                <p>INSTALAÇÕES</p>
-                            </a>
-                        </div>
-                        <div class="col-md-3">
-                            <a href="seguros.html">
-                                <span>
-                                    <img src="resources/imagens/menu/seguros.jpg" alt="Seguros" class="zoom">
-                                </span>
-                            </a>
-                            <a href="seguros.html">
-                                <p>SEGUROS</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+        <section class="sidebar" id="sidebar" style="display:none">
+            <div class="sidebar">
+                <button onclick="sidebar()" class="fa fa-regular fa-circle-xmark"></button>
+                <a href="cross_selling.html">Cross-Selling</a>
+                <a href="transferencias.html">Transferencias</a>
             </div>
         </section>
 
-        <section>
-            <footer>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <hr>
-                            <h4>
-                                © Copyright 2022 Carlos Machado - Todos os direitos reservados
-                            </h4>
-                            <h4>
-                                Confidencial uso interno na loja de Braga
-                            </h4>
+        <div class="main" id="main">
+
+            <section class="header">
+                <header class="generic index">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="navbar">
+                                    <a href="index.html">
+                                        <span>
+                                            <img src="resources/imagens/branding/logotipo.png" alt="Media Markt">
+                                        </span>
+                                        <p>
+                                            Braga
+                                        </p>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 align-self-center d-flex justify-content-center">
+                                <div class="sidebar_button">
+                                    <button id="openNav" onclick="sidebar()" class="fa fa-solid fa-bars"></button>
+                                </div>
+                            </div>
+                            <div class="col-md-3 d-flex justify-content-end">
+                                <div class="navbar-content">
+                                    <a href="cross_selling.html">
+                                        <i class="fa-solid fa-coins fa-bounce" style="color: #ff0000;"></i>
+                                        <p>Cross-Selling</p>
+                                    </a>
+                                    <a href="transferencias.html">
+                                        <i class="fa-solid fa-download fa-bounce" style="color: #ff0000;"></i>
+                                        <p>Transferências</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+            </section>
+    
+            <section>
+                <div class="menu">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <a href="reparacoes.html">
+                                    <span>
+                                        <img src="resources/imagens/menu/reparacoes.jpg" alt="Reparações" class="zoom">
+                                    </span>
+                                </a>
+                                <a href="reparacoes.html">
+                                    <p>REPARAÇÕES</p>
+                                </a>
+                            </div>
+                            <div class="col-md-3">
+                                <a href="calibracao.html">
+                                    <span>
+                                        <img src="resources/imagens/menu/calibracao de tv.jpg" alt="Calibração de TV" class="zoom">
+                                    </span>
+                                </a>
+                                <a href="calibracao.html">
+                                    <p>CALIBRAÇÃO DA TV</p>
+                                </a>
+                            </div>
+                            <div class="col-md-3">
+                                <a href="copia.html">
+                                    <span>
+                                        <img src="resources/imagens/menu/copia de contatos.jpg" alt="copia de contatos" class="zoom">
+                                    </span>
+                                </a>
+                                <a href="copia.html">
+                                    <p>COPIA DE CONTACTOS</p>
+                                </a>
+                            </div>
+                            <div class="col-md-3">
+                                <a href="">
+                                    <span>
+                                        <img src="resources/imagens/menu/personalizacoes.jpg" alt="personalizações" class="zoom">
+                                    </span>
+                                </a>
+                                <a href="">
+                                    <p>PERSONALIZAÇÃO</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <a href="configuracoes.html">
+                                    <span>
+                                        <img src="resources/imagens/menu/configuracoes.jpg" alt="Configurações" class="zoom">
+                                    </span>
+                                </a>
+                                <a href="configuracoes.html">
+                                    <p>CONFIGURAÇÕES</p>
+                                </a>
+                            </div>
+                            <div class="col-md-3">
+                                <a href="entregas.html">
+                                    <span>
+                                        <img src="resources/imagens/menu/entregas.jpg" alt="Entregas" class="zoom">
+                                    </span>
+                                </a>
+                                <a href="entregas.html">
+                                    <p>ENTREGAS</p>
+                                </a>
+                            </div>
+                            <div class="col-md-3">
+                                <a href="instalacoes.html">
+                                    <span>
+                                        <img src="resources/imagens/menu/instalacoes.jpg" alt="Instalações" class="zoom">
+                                    </span>
+                                </a>
+                                <a href="instalacoes.html">
+                                    <p>INSTALAÇÕES</p>
+                                </a>
+                            </div>
+                            <div class="col-md-3">
+                                <a href="seguros.html">
+                                    <span>
+                                        <img src="resources/imagens/menu/seguros.jpg" alt="Seguros" class="zoom">
+                                    </span>
+                                </a>
+                                <a href="seguros.html">
+                                    <p>SEGUROS</p>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </footer>
-        </section>
-
+            </section>
+    
+            <section>
+                <footer>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <hr>
+                                <h4>
+                                    © Copyright 2022 Carlos Machado & Bruno Silva - Todos os direitos reservados.
+                                </h4>
+                                <h4>
+                                    Confidencial uso interno na loja de Braga.
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </section>
+        </div>
     </div>
-
 </body>
 
 </html>

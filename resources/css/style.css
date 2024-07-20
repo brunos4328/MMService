@@ -162,6 +162,42 @@ header.index div.container{
     vertical-align: -webkit-baseline-middle;
 }
 
+.sidebar{
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    position: fixed;
+    z-index: 1;
+    overflow: auto;
+}
+
+.sidebar a{
+    width: 100%;
+    display: block;
+    padding: 8px 16px;
+    text-align: center;
+    border: none;
+    white-space: normal;
+    float: none;
+    outline: 0;
+    color: #000;
+    text-decoration: none;
+}
+
+.sidebar button{
+    margin-top: 22px;
+    font-size: 20px;
+    border: none;
+    background-color: transparent;
+}
+
+.main .sidebar_button button{
+    border: 0;
+    background-color: transparent;
+    text-align: center;
+    font-size: 20px;
+}
 
 .background{
     text-align: center;
@@ -730,6 +766,21 @@ KeyFrames
 */
 
 @Keyframes fade{
+    0% {
+        opacity: 0;
+        transform: translatex(0px) translatey(0px);
+    }
+    50% {
+        opacity: 1;
+        transform: translatex(100px) translatey(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translatex(100px) translatey(100px);
+    }
+}
+
+@Keyframes growing{
     0% {
         opacity: 0;
         transform: translatex(0px) translatey(0px);
