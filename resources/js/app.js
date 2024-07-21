@@ -45,7 +45,7 @@ async function loginUser(email, password) {
         if (userData.password === encryptedPassword) {
             console.log("Usuário logado com sucesso:", user.uid);
             // Redirecionar para outra página após login bem-sucedido
-            window.location.href = "service.html";
+            window.location.href = "index.html";
         } else {
             console.error("Senha incorreta.");
         }
@@ -68,7 +68,7 @@ const loginButton = document.getElementById("loginButton");
     }
 
 // Function to register new user
-async function registerUser(email, username, password) {
+async function registerUser(email, username, usercode, password) {
     try {
         // Encrypt the password
         const encryptedPassword = CryptoJS.SHA256(password).toString();
@@ -81,6 +81,7 @@ async function registerUser(email, username, password) {
         await setDoc(doc(db, "users", user.uid), {
             email: email,
             username: username,
+            usercode: usercode,
             password: encryptedPassword
         });
 
@@ -100,7 +101,7 @@ async function registerUser(email, username, password) {
     }
 }
 
-// Register button event listener
+// * Register button event listener
         document.addEventListener("DOMContentLoaded", () => {
             const registerButton = document.getElementById("registerButton");
                 if (registerButton) {

@@ -5,26 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
-    <link rel="shortcut icon" href="../resources/imagens/branding/logotipo.png" type="image/x-icon">
-    <link rel="stylesheet" href="../resources/tools/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../resources/css/style.css">
+    <title>Sign In</title>
+    <link rel="shortcut icon" href="resources/imagens/branding/logotipo.png" type="image/x-icon">
+    <link rel="stylesheet" href="resources/tools/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="resources/css/style.css">
     <script src="https://kit.fontawesome.com/e37222f816.js" crossorigin="anonymous"></script>
+    <script type="module" src="resources/js/app.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.js"></script>
-    <script type="module" src="../resources/js/app.js"></script>
-    <script src="../resources/js/button_funciton.js"></script>
+    <script src="resources/js/button_funciton.js"></script>
 </head>
 
 
 <body class="grey">
+
     <div class="page-wrapper transferencias">
 
         <section>
             <header>
                 <div class="navbar">
-                    <a href="../index.html">
+                    <a href="index.html">
                         <span>
-                            <img src="../resources/imagens/branding/logotipo.png" alt="Media Markt">
+                            <img src="resources/imagens/branding/logotipo.png" alt="Media Markt">
                         </span>
                         <p>
                             Braga
@@ -36,13 +37,13 @@
 
         <section>
             <div class="return">
-                <a href="../transferencias.html">
+                <a href="transferencias.html">
                     <span class="fa-solid fa-reply"></span>
                     Voltar
                 </a>
             </div>
             <div class="titulos">
-                <h1>Login - Media Service</h1>
+                <h1>Sign In</h1>
             </div>
         </section>
 
@@ -50,20 +51,28 @@
             <form class="login" action="">
                 <fieldset>
                     <div class="login-box">
-                        <h1>Login</h1>
+                        <h1>signin</h1>
+                        <div class="input-box">
+                            <i class="fa fa-solid fa-user"></i>
+                            <input type="text" name="username" id="username" placeholder="username" required>
+                        </div>
+                        <div class="input-box">
+                            <i class="fa fa-solid fa-code"></i>
+                            <input type="text" name="usercode" id="usercode" placeholder="Codigo de Funcionario" required>
+                        </div>
                         <div class="input-box">
                             <i class="fa fa-solid fa-envelope"></i>
-                            <input type="email" id="email" name="email" placeholder="Email">
+                            <input type="email" id="email" name="email" placeholder="Email" required>
                         </div>
                         <div class="input-box">
                             <i class="fa fa-solid fa-key"></i>
-                            <input type="password" id="password" name="password" placeholder="password">
+                            <input type="password" id="password" name="password" placeholder="password" required>
                             <span class="eye" onclick="eyeFunction()">
                                 <i id="hide1" class="fa fa-solid fa-eye"></i>
                                 <i id="hide2" class="fa fa-solid fa-eye-slash"></i>
                             </span>
                         </div>
-                        <button type="button" id="loginButton" class="login-btn">Login</button>
+                        <button id="registerButton" class="login-btn">Register</button>
                     </div>
                 </fieldset>
             </form>

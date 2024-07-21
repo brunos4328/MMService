@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
         logoutButton.addEventListener("click", () => {
             signOut(auth).then(() => {
                 console.log("Usuário deslogado com sucesso.");
-                window.location.href = "login_service.html";
+                window.location.href = "../index.html";
             }).catch((error) => {
                 console.error("Erro ao deslogar:", error);
             });
