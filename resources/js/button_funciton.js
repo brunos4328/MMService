@@ -76,23 +76,20 @@ function eyeFunction() {
 }
 
 function sidebar() {
-    var x = document.getElementById("main");
     var y = document.getElementById("sidebar");
     var z = document.getElementById("openNav");
 
-    if (!x || !y || !z) {
-        console.error("Um ou mais elementos não foram encontrados no DOM.");
-        return;
-    }
-
     if(y.style.display === 'none'){
-        y.style.height = "100%";
         y.style.display = "block";
+        setTimeout(() => {
+            y.style.height = "100%";
+        }, 10);
         z.style.display = "none";
-    }
-    else{
-        x.style.marginLeft = "0";
-        y.style.display = "none";
-        z.style.display = "inline-block";
+    } else{
+        setTimeout(() => {
+            y.style.height = "0";
+            y.style.display = "none";
+            z.style.display = "inline-block";
+        }, 50);
     }
   }
