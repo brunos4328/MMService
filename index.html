@@ -16,11 +16,10 @@
 <body>
     <div class="page-wrapper index">
 
-        <section class="sidebar" id="sidebar" style="display: none;">
-            <div>
-                <button onclick="sidebar()" class="fa fa-regular fa-circle-xmark"></button>
-                <a href="cross_selling.html">Cross-Selling</a>
-                <a href="transferencias.html">Transferências</a>
+        <section class="sidebar_wrapper">
+            <div class="sidebar" id="sidebar" style="display: none;">
+                <a href="cross_selling.html" class="test">Cross-Selling</a>
+                <a href="transferencias.html" class="test">Transferências</a>
             </div>
         </section>
 
@@ -45,16 +44,18 @@
                             <div class="col-md-4 align-self-center d-flex justify-content-center">
                                 <div id="sidebar_button" class="sidebar_button">
                                     <button id="openNav" onclick="sidebar()" class="fa fa-solid fa-bars"></button>
+                                    <button id="closeNav" onclick="sidebar()" class="fa fa-regular fa-circle-xmark"></button>
                                 </div>
                             </div>
                             <div class="col-md-3 d-flex justify-content-end">
                                 <div class="navbar-content">
                                     <a href="cross_selling.html">
-                                        <i class="fa-solid fa-coins fa-bounce" style="color: #ff0000;"></i>
+                                        <i class="fa-solid fa-coins fa-bounce" style="color: #d9222a;"></i>
                                         <p>Cross-Selling</p>
                                     </a>
                                     <a href="transferencias.html">
-                                        <i class="fa-solid fa-download fa-bounce" style="color: #ff0000;"></i>
+                                        <i class="fa-solid fa-download fa-bounce" style="color: #d9222a
+                                        ;"></i>
                                         <p>Transferências</p>
                                     </a>
                                 </div>
