@@ -2,8 +2,8 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
 import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+import { getFirestore, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -24,18 +24,99 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const database = getDatabase();
-const db = getFirestore();
-const auth = getAuth();
+const db = getFirestore(app);
+const auth = getAuth(app);
+
+async function fetchUsername(userEmail) {
+    try {
+      // Referência para a coleção 'users'
+      const usersRef = collection(db, 'users');
+      
+      // Query para encontrar o usuário com o email especificado
+      const q = query(usersRef, where('email', '==', userEmail));
+      const querySnapshot = await getDocs(q);
+      
+      if (!querySnapshot.empty) {
+        // Se o documento foi encontrado, pegue o username
+        const userDoc = querySnapshot.docs[0];
+        const userData = userDoc.data();
+        return userData.username;
+      } else {
+        console.log('Nenhum usuário encontrado com este email.');
+        return null;
+      }
+    } catch (error) {
+      console.error('Erro ao buscar o username:', error);
+    }
+  }
+
+  async function fetchUsercode(userEmail) {
+    try {
+      // Referência para a coleção 'users'
+      const usersRef = collection(db, 'users');
+      
+      // Query para encontrar o usuário com o email especificado
+      const q = query(usersRef, where('email', '==', userEmail));
+      const querySnapshot = await getDocs(q);
+      
+      if (!querySnapshot.empty) {
+        // Se o documento foi encontrado, pegue o username
+        const userDoc = querySnapshot.docs[0];
+        const userData = userDoc.data();
+        return userData.usercode;
+      } else {
+        console.log('Nenhum usuário encontrado com este email.');
+        return null;
+      }
+    } catch (error) {
+      console.error('Erro ao buscar o username:', error);
+    }
+  }
+
+  async function fetchUserphoto(userEmail) {
+    try {
+      // Referência para a coleção 'users'
+      const usersRef = collection(db, 'users');
+      
+      // Query para encontrar o usuário com o email especificado
+      const q = query(usersRef, where('email', '==', userEmail));
+      const querySnapshot = await getDocs(q);
+      
+      if (!querySnapshot.empty) {
+        // Se o documento foi encontrado, pegue o username
+        const userDoc = querySnapshot.docs[0];
+        const userData = userDoc.data();
+        return userData.user-photo;
+      } else {
+        console.log('Nenhum usuário encontrado com este email.');
+        return null;
+      }
+    } catch (error) {
+      console.error('Erro ao buscar o username:', error);
+    }
+  }
+
 
 // Função para fazer o login do usuário
-function updateUI(user) {
+async function updateUI(user) {
     if (user) {
         // Usuário logado
         document.getElementById('login-btn').style.display = 'none';
         document.getElementById('user-info').style.display = 'block';
         document.getElementById('user-photo').src = user.photoURL || 'https://via.placeholder.com/50';
-        document.getElementById('user-name').textContent = user.email || 'Nome do Usuário';
+
+        // Buscar o username do Firestore Database
+        const username = await fetchUsername(user.email);
+        document.getElementById('user-name').textContent = username || user.email || 'Nome do Usuário';
+ 
+        // Buscar o username do Firestore Database
+        const usercode = await fetchUsercode(user.email);
+        document.getElementById('user-code').textContent = usercode || 'Codigo do Usuário';
+ 
+        // Buscar o username do Firestore Database
+        const usercode = await fetchUserphoto(user.email);
+        document.getElementById('user-photo').textContent = user-photo || 'https://via.placeholder.com/50';
+ 
     } else {
         // Usuário não logado
         document.getElementById('login-btn').style.display = 'block';

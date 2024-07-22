@@ -212,21 +212,17 @@ header.index div.container{
     display: inline-block;
 }
 
-.navbar-content a:first-child{
-    padding-right: 15px;
-}
-
-.navbar-content span{
-    color: #000;
-    font-size: 18px;
-}
-
-.navbar-content p{
-    color: #000;
-    font-size: 18px;
-    font-weight: 500;
-    display: inline-block;
-    vertical-align: -webkit-baseline-middle;
+.navbar-content button{
+    border: 1px solid var(--mm);
+    border-radius: 15px;
+    color: #fff;
+    background-color: var(--mm);
+    padding: 7px;
+    font-weight: bold;
+    text-shadow:-1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000;
 }
 
 .background{

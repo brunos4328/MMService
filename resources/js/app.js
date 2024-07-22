@@ -110,7 +110,8 @@ async function registerUser(email, username, usercode, password) {
                         const email = document.getElementById("email").value;
                         const username = document.getElementById("username").value;
                         const password = document.getElementById("password").value;
-                        registerUser(email, username, password);
+                        const usercode = document.getElementById("usercode").value;
+                        registerUser(email, username, password, usercode);
             });
             } else {
                 console.error("Elemento registerButton não encontrado no DOM.");
