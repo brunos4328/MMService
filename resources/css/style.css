@@ -108,20 +108,8 @@ header h3{
     font-weight: normal ;
 }
 
-header.index div.container{
-    margin: 0;
-    width: 100%
-}
-
 .navbar{
     background-color: #fff;
-    height: 77px;
-    padding-left: 80px;
-}
-
-.navbar img{
-    height: 61px;
-    padding-right: 10px;
 }
 
 
@@ -212,7 +200,28 @@ header.index div.container{
     display: inline-block;
 }
 
+.navbar-content div{
+    display: inline-block;
+}
+
+.navbar-content div#user-info div:first-child{
+    height: 100%;
+    vertical-align: top;
+}
+
+.navbar-content div#user-info div:nth-child(2){
+    vertical-align: bottom;
+}
+
+.navbar-content p{
+    vertical-align: middle;
+    margin-bottom: 5px;
+    margin-right: 10px;
+}
+
 .navbar-content button{
+    margin-top: 5px;
+    margin-right: 10px;
     border: 1px solid var(--mm);
     border-radius: 15px;
     color: #fff;
@@ -223,6 +232,11 @@ header.index div.container{
                 1px -1px 0 #000,
                 -1px 1px 0 #000,
                 1px 1px 0 #000;
+}
+
+#user-photo{
+    height: 60px;
+    border-radius: 70px;
 }
 
 .background{

@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="resources/css/style.css">
     <script src="https://kit.fontawesome.com/e37222f816.js" crossorigin="anonymous"></script>
     <script src="resources/js/button_funciton.js"></script>
-    <script type="module" src="resources/js/login.js"></script>
+    <script type="module" src="resources/js/firebase_auth.js"></script>
 </head>
 
 <body>
@@ -28,9 +28,9 @@
 
             <section class="header">
                 <header class="generic index">
-                    <div class="container-fluid">
+                    <div class="container">
                         <div class="row">
-                            <div class="col-md-4 align-self-center">
+                            <div class="col-md-4 align-self-center d-flex justify-content-start">
                                 <div class="navbar">
                                     <a href="index.html">
                                         <span>
@@ -48,17 +48,26 @@
                                     <button id="closeNav" onclick="sidebar()" class="fa fa-regular fa-circle-xmark"></button>
                                 </div>
                             </div>
-                            <div class="col-md-3 align-self-center d-flex justify-content-end">
+                            <div class="col-md-4 align-self-center d-flex justify-content-end">
                                 <div class="navbar-content">
                                     <div class="login">
                                         <button id="login-btn">Iniciar Sessão</button>
                                     </div>
                                     <div id="user-info">
-                                        <p id="user-name"></p>
-                                        <p id="user-code"></p>
-                                        <span>
-                                            <img id="user-photo" alt="Foto de Usuário">
-                                        </span>
+                                        <div>
+                                            <button id="logoutButton">Logout</button>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <p id="user-name"></p>
+                                                <p id="user-code"></p>
+                                            </div>
+                                            <div>
+                                                <span>
+                                                    <img id="user-photo" alt="Foto de Usuário">
+                                                </span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

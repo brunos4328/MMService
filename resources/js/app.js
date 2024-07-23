@@ -55,7 +55,9 @@ async function loginUser(email, password) {
 }
 
 // Event listener para o botão de login
-const loginButton = document.getElementById("loginButton");
+
+document.addEventListener("DOMContentLoaded", () => {
+    const loginButton = document.getElementById("loginButton");
     if (loginButton) {
         loginButton.addEventListener("click", (event) => {
             event.preventDefault();
@@ -66,6 +68,7 @@ const loginButton = document.getElementById("loginButton");
     } else {
         console.error("Elemento loginButton não encontrado no DOM.");
     }
+});
 
 // Function to register new user
 async function registerUser(email, username, usercode, password) {
@@ -111,7 +114,7 @@ async function registerUser(email, username, usercode, password) {
                         const username = document.getElementById("username").value;
                         const password = document.getElementById("password").value;
                         const usercode = document.getElementById("usercode").value;
-                        registerUser(email, username, password, usercode);
+                        registerUser(email, username, usercode, password);
             });
             } else {
                 console.error("Elemento registerButton não encontrado no DOM.");
