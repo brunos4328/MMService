@@ -109,6 +109,7 @@ function eyeFunction() {
 }
 
 function sidebar() {
+    var w = document.getElementsByTagName("body");
     var x = document.getElementById("closeNav");
     var y = document.getElementById("sidebar");
     var z = document.getElementById("openNav");
@@ -120,31 +121,36 @@ function sidebar() {
         }, 10);
         z.style.display = "none";
         x.style.display = "inline-block";
+        w.style.overflow = "hidden";
     } else{
         setTimeout(() => {
             y.style.height = "0";
             y.style.display = "none";
             x.style.display = "none";
             z.style.display = "inline-block";
+            w.style.overflow = "auto";
         }, 50);
-    }
+    } 
   }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const tests = document.querySelectorAll('.test');
+  document.addEventListener('DOMContentLoaded', () => {
+    // Selecionar todos os elementos com as classes .sidebar_generic e .sidebar_hidden
+    const sidebars = document.querySelectorAll('.sidebar_generic, .sidebar_hidden');
 
-    tests.forEach(test => {
-        test.addEventListener('mouseover', () => {
-            tests.forEach(el => {
-                if (el !== test) {
+    sidebars.forEach(sidebar => {
+        // Evento de mouseover
+        sidebar.addEventListener('mouseover', () => {
+            sidebars.forEach(el => {
+                if (el !== sidebar) {
                     el.classList.add('dim');
                 }
             });
-            test.classList.add('hover');
+            sidebar.classList.add('hover');
         });
 
-        test.addEventListener('mouseout', () => {
-            tests.forEach(el => {
+        // Evento de mouseout
+        sidebar.addEventListener('mouseout', () => {
+            sidebars.forEach(el => {
                 el.classList.remove('dim');
                 el.classList.remove('hover');
             });

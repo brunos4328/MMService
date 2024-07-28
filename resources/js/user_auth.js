@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
     onAuthStateChanged(auth, (user) => {
         if (!user) {
             // Se não houver usuário logado, redirecionar para login_service.html
-            window.location.href = "index.html";
+            window.location.href = "../index.html";
         } else {
             console.log("Usuário logado:", user.uid);
             updateUI(user);
@@ -143,98 +143,35 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-async function fetchUsername(userEmail) {
+async function fetchUserDetails(userEmail) {
     try {
-      // Referência para a coleção 'users'
-      const usersRef = collection(db, 'users');
-      
-      // Query para encontrar o usuário com o email especificado
-      const q = query(usersRef, where('email', '==', userEmail));
-      const querySnapshot = await getDocs(q);
-      
-      if (!querySnapshot.empty) {
-        // Se o documento foi encontrado, pegue o username
-        const userDoc = querySnapshot.docs[0];
-        const userData = userDoc.data();
-        return userData.username;
-      } else {
-        console.log('Nenhum usuário encontrado com este email.');
-        return null;
-      }
+        // Referência para a coleção 'users'
+        const usersRef = collection(db, 'users');
+        
+        // Query para encontrar o usuário com o email especificado
+        const q = query(usersRef, where('email', '==', userEmail));
+        const querySnapshot = await getDocs(q);
+        
+        if (!querySnapshot.empty) {
+            // Se o documento foi encontrado, pegue os dados do usuário
+            const userDoc = querySnapshot.docs[0];
+            const userData = userDoc.data();
+            return {
+                username: userData.username,
+                usercode: userData.usercode,
+                userphone: userData.userphone,
+                category: userData.category,
+                userphoto: userData.userphoto
+            };
+        } else {
+            console.log('Nenhum usuário encontrado com este email.');
+            return null;
+        }
     } catch (error) {
-      console.error('Erro ao buscar o username:', error);
+        console.error('Erro ao buscar os detalhes do usuário:', error);
     }
-  }
+}
 
-  async function fetchUsercode(userEmail) {
-    try {
-      // Referência para a coleção 'users'
-      const usersRef = collection(db, 'users');
-      
-      // Query para encontrar o usuário com o email especificado
-      const q = query(usersRef, where('email', '==', userEmail));
-      const querySnapshot = await getDocs(q);
-      
-      if (!querySnapshot.empty) {
-        // Se o documento foi encontrado, pegue o username
-        const userDoc = querySnapshot.docs[0];
-        const userData = userDoc.data();
-        return userData.usercode;
-      } else {
-        console.log('Nenhum usuário encontrado com este email.');
-        return null;
-      }
-    } catch (error) {
-      console.error('Erro ao buscar o usercode:', error);
-    }
-  }
-
-  async function fetchUserphone(userEmail) {
-    try {
-      // Referência para a coleção 'users'
-      const usersRef = collection(db, 'users');
-      
-      // Query para encontrar o usuário com o email especificado
-      const q = query(usersRef, where('email', '==', userEmail));
-      const querySnapshot = await getDocs(q);
-      
-      if (!querySnapshot.empty) {
-        // Se o documento foi encontrado, pegue o username
-        const userDoc = querySnapshot.docs[0];
-        const userData = userDoc.data();
-        return userData.userphone;
-      } else {
-        console.log('Nenhum usuário encontrado com este email.');
-        return null;
-      }
-    } catch (error) {
-      console.error('Erro ao buscar o userphone:', error);
-    }
-  }
-
-  async function fetchUserphoto(userEmail) {
-    try {
-      // Referência para a coleção 'users'
-      const usersRef = collection(db, 'users');
-      
-      // Query para encontrar o usuário com o email especificado
-      const q = query(usersRef, where('email', '==', userEmail));
-      const querySnapshot = await getDocs(q);
-      
-      if (!querySnapshot.empty) {
-        // Se o documento foi encontrado, pegue o username
-        const userDoc = querySnapshot.docs[0];
-        const userData = userDoc.data();
-        return userData.userphoto;
-      } else {
-        console.log('Nenhum usuário encontrado com este email.');
-        return null;
-      }
-    } catch (error) {
-      console.error('Erro ao buscar o userphoto:', error);
-    }
-  }
-  
 
   // Função para salvar o perfil do usuário
 async function saveUserProfile() {
@@ -276,33 +213,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function updateUI(user) {
     if (user) {
-        // Buscar o username do Firestore Database
-        const username = await fetchUsername(user.email);
-        document.getElementById('user-name').textContent = username || user.email || 'Nome do Usuário';
-        document.getElementById('user-name-input').value = username || '';
- 
-        // Buscar o username do Firestore Database
-        const usercode = await fetchUsercode(user.email);
-        document.getElementById('user-code').textContent = usercode || 'Codigo do Usuário';
-        document.getElementById('user-code-input').value = usercode || '';
+        const userDetails = await fetchUserDetails(user.email);
 
-       // Buscar o userphoto do Firestore Database
-       const userphoto = await fetchUserphoto(user.email);
-       document.getElementById('user-photo').src = userphoto || 'https://static.vecteezy.com/system/resources/previews/020/911/746/non_2x/user-profile-icon-profile-avatar-user-icon-male-icon-face-icon-profile-icon-free-png.png';
+        if (userDetails) {
+            document.getElementById('user-name').textContent = userDetails.username || user.email;
+            document.getElementById('user-name-input').value = userDetails.username || '';
 
-       document.getElementById('user-email').textContent = user.email;
-       document.getElementById('user-email-input').value = user.email;
+            document.getElementById('user-code').textContent = userDetails.usercode || 'Código do Usuário';
+            document.getElementById('user-code-input').value = userDetails.usercode || '';
 
-       // Supondo que você armazene o número de telefone em 'phone' no Firestore
-       const userPhone = await fetchUserphone(user.email); // Você precisa implementar esta função para buscar o número de telefone
-       document.getElementById('user-phone-input').value = userPhone || '';
+            document.getElementById('user-photo').src = userDetails.userphoto || 'https://static.vecteezy.com/system/resources/previews/020/911/746/non_2x/user-profile-icon-profile-avatar-user-icon-male-icon-face-icon-profile-icon-free-png.png';
 
+            document.getElementById('user-email').textContent = user.email;
+            document.getElementById('user-email-input').value = user.email;
+
+            document.getElementById('user-phone-input').value = userDetails.userphone || '';
+
+            document.getElementById('user-category-input').value = userDetails.category || 'empty';
+        } else {
+            console.log("Nenhum detalhe do usuário encontrado.");
+        }
     } else {
-        // Usuário não logado
-        window.location.href = "index.html";
+        window.location.href = "login_service.html";
     }
 }
-
 // Verifica o estado de autenticação ao carregar a página
 auth.onAuthStateChanged(user => {
     updateUI(user);

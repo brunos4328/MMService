@@ -5,7 +5,6 @@ import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasej
 import { getAuth, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 import { getFirestore, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -27,8 +26,8 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
 
-async function fetchUsername(userEmail) {
-    try {
+async function fetchUserDetails(userEmail) {
+  try {
       // Referência para a coleção 'users'
       const usersRef = collection(db, 'users');
       
@@ -37,83 +36,74 @@ async function fetchUsername(userEmail) {
       const querySnapshot = await getDocs(q);
       
       if (!querySnapshot.empty) {
-        // Se o documento foi encontrado, pegue o username
-        const userDoc = querySnapshot.docs[0];
-        const userData = userDoc.data();
-        return userData.username;
+          // Se o documento foi encontrado, pegue os dados do usuário
+          const userDoc = querySnapshot.docs[0];
+          const userData = userDoc.data();
+          return {
+              username: userData.username,
+              usercode: userData.usercode,
+              category: userData.category,
+              userphoto: userData.userphoto
+          };
       } else {
-        console.log('Nenhum usuário encontrado com este email.');
-        return null;
+          console.log('Nenhum usuário encontrado com este email.');
+          return null;
       }
-    } catch (error) {
-      console.error('Erro ao buscar o username:', error);
-    }
+  } catch (error) {
+      console.error('Erro ao buscar os detalhes do usuário:', error);
   }
-
-  async function fetchUsercode(userEmail) {
-    try {
-      // Referência para a coleção 'users'
-      const usersRef = collection(db, 'users');
-      
-      // Query para encontrar o usuário com o email especificado
-      const q = query(usersRef, where('email', '==', userEmail));
-      const querySnapshot = await getDocs(q);
-      
-      if (!querySnapshot.empty) {
-        // Se o documento foi encontrado, pegue o username
-        const userDoc = querySnapshot.docs[0];
-        const userData = userDoc.data();
-        return userData.usercode;
-      } else {
-        console.log('Nenhum usuário encontrado com este email.');
-        return null;
-      }
-    } catch (error) {
-      console.error('Erro ao buscar o usercode:', error);
-    }
-  }
-
-  async function fetchUserphoto(userEmail) {
-    try {
-      // Referência para a coleção 'users'
-      const usersRef = collection(db, 'users');
-      
-      // Query para encontrar o usuário com o email especificado
-      const q = query(usersRef, where('email', '==', userEmail));
-      const querySnapshot = await getDocs(q);
-      
-      if (!querySnapshot.empty) {
-        // Se o documento foi encontrado, pegue o username
-        const userDoc = querySnapshot.docs[0];
-        const userData = userDoc.data();
-        return userData.userphoto;
-      } else {
-        console.log('Nenhum usuário encontrado com este email.');
-        return null;
-      }
-    } catch (error) {
-      console.error('Erro ao buscar o userphoto:', error);
-    }
-  }
+}
 
 // Função para fazer o login do usuário
 async function updateUI(user) {
     if (user) {
-        // Usuário logado
-        document.getElementById('login-btn').style.display = 'none';
-        document.getElementById('user-info').style.display = 'block';
+      const userDetails = await fetchUserDetails(user.email);
 
-        // Buscar o username do Firestore Database
-        const username = await fetchUsername(user.email);
-        document.getElementById('user-name').textContent = username || user.email || 'Nome do Usuário';
- 
-        // Buscar o username do Firestore Database
-        const usercode = await fetchUsercode(user.email);
-        document.getElementById('user-code').textContent = usercode || 'Codigo do Usuário';
- 
-       // Buscar o userphoto do Firestore Database
-       const userphoto = await fetchUserphoto(user.email);
-       document.getElementById('user-photo').src = userphoto || 'https://static.vecteezy.com/system/resources/previews/020/911/746/non_2x/user-profile-icon-profile-avatar-user-icon-male-icon-face-icon-profile-icon-free-png.png';
+      // Usuário logado
+      document.getElementById('login-btn').style.display = 'none';
+      document.getElementById('user-info').style.display = 'block';
+
+        if (userDetails) {
+        document.getElementById('user-name').textContent = userDetails.username || user.email || 'Nome do Usuário';
+
+        document.getElementById('user-code').textContent = userDetails.usercode || 'Codigo do Usuário';
+
+        document.getElementById('user-photo').src = userDetails.userphoto || 'https://static.vecteezy.com/system/resources/previews/020/911/746/non_2x/user-profile-icon-profile-avatar-user-icon-male-icon-face-icon-profile-icon-free-png.png';
+
+          if (userDetails.category === 'Service') {
+              document.getElementById('sidebar_service').style.display = 'inline-block';
+          }
+          else {
+              document.getElementById('sidebar_service').style.display = 'none';
+          }  
+
+          if (userDetails.category === 'SPV') {
+            document.getElementById('sidebar_spv').style.display = 'inline-block';
+          }
+          else {
+              document.getElementById('sidebar_spv').style.display = 'none';
+          }  
+
+          if (userDetails.category === 'Informatica') {
+            document.getElementById('sidebar_informatica').style.display = 'inline-block';
+          }
+          else {
+              document.getElementById('sidebar_informatica').style.display = 'none';
+          } 
+
+          if (userDetails.category === 'Admin') {
+            document.getElementById('sidebar_service').style.display = 'inline-block';
+            document.getElementById('sidebar_spv').style.display = 'inline-block';
+            document.getElementById('sidebar_informatica').style.display = 'inline-block';
+
+          }
+          }
+          else {
+              window.location.href = "login_service.html";
+              document.getElementById('sidebar_service').style.display = 'none';
+              document.getElementById('sidebar_spv').style.display = 'none';
+              document.getElementById('sidebar_informatica').style.display = 'none';
+          }  
 
     } else {
         // Usuário não logado

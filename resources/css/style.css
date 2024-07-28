@@ -15,6 +15,10 @@ body{
     height: 100%;
 }
 
+.noScroll{
+    overflow: hidden;
+}
+
 .left{
     float: left;
 }
@@ -138,11 +142,11 @@ header h3{
     text-align: center;
     width: 100%;
     background-color: #fff;
-    position: fixed;
+    position: absolute;
     z-index: 1;
     overflow: hidden;
     transition: height 1.5s ease;
-    margin-top: 90px;
+    padding-top: 90px;
 }
 
 .sidebar a{
@@ -172,6 +176,10 @@ header h3{
 
 .sidebar a.dim{
     color: rgb(233, 233, 233);
+}
+
+a.sidebar_hidden{
+    display: none;
 }
 
 .sidebar button{
@@ -830,7 +838,7 @@ Footer
 */
 
 footer{
-    margin-top: 90px;
+    margin-top: 50px;
 }
 
 footer hr{

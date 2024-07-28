@@ -55,9 +55,11 @@ async function loginUser(email, password) {
 }
 
 // Event listener para o botão de login
-
 document.addEventListener("DOMContentLoaded", () => {
     const loginButton = document.getElementById("loginButton");
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+
     if (loginButton) {
         loginButton.addEventListener("click", (event) => {
             event.preventDefault();
@@ -68,6 +70,18 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         console.error("Elemento loginButton não encontrado no DOM.");
     }
+
+    emailInput.addEventListener('keyup', (event) => {
+        if (event.key === 'Enter') {
+            loginButton.click();
+        }
+    });
+
+    passwordInput.addEventListener('keyup', (event) => {
+        if (event.key === 'Enter') {
+            loginButton.click();
+        }
+    });
 });
 
 // Function to register new user
@@ -88,6 +102,7 @@ async function registerUser(email, username, usercode, password) {
             password: encryptedPassword
         });
 
+        location. reload() 
         console.log("User registered and data saved successfully.");
     } catch (error) {
         console.error("Error registering user:", error);
