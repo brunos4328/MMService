@@ -11,329 +11,384 @@
     <link rel="stylesheet" href="resources/css/style.css">
     <script src="https://kit.fontawesome.com/e37222f816.js" crossorigin="anonymous"></script>
     <script src="resources/js/button_funciton.js"></script>
+    <script src="../resources/js/button_funciton.js"></script>
+    <script type="module" src="../resources/js/firebase_auth.js"></script>
 </head>
 
 
 <body class="grey">
     <div class="page-wrapper transferencias">
 
-        <section>
-            <header>
-                <div class="navbar">
-                    <a href="index.html">
-                        <span>
-                            <img src="resources/imagens/branding/logotipo.png" alt="Media Markt">
-                        </span>
-                        <p>
-                            Braga
-                        </p>
-                    </a>
-                </div>
-            </header>
-        </section>
-
-        <section>
-            <div class="return">
-                <a href="index.html">
-                    <span class="fa-solid fa-reply"></span>
-                    Voltar
-                </a>
-            </div>
-            <div class="titulos">
-                <h1>Transferências</h1>
+        <section class="sidebar_wrapper">
+            <div class="sidebar" id="sidebar" style="display: none;">
+                <a href="../cross_selling.html" class="sidebar_generic">Cross-Selling</a>
+                <a href="../transferencias.html" class="sidebar_generic">Transferências</a>
+                <a href="../departamentos/service.html" class="sidebar_hidden" id="sidebar_service">Service</a>
+                <a href="../departamentos/spv.html" class="sidebar_hidden" id="sidebar_spv">SPV</a>
+                <a href="../departamentos/informatica.html" class="sidebar_hidden" id="sidebar_informatica">Informatica</a>
+                <a href="../departamentos/b2b.html" class="sidebar_hidden" id="sidebar_b2b">B2B</a>
+                <a href="../signin.html" class="sidebar_hidden" id="sidebar_signin">Signin</a>
             </div>
         </section>
 
-        <section class="department">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3">
-                        <a onclick="spvFunction()" target="_blank" id="SPV_menu">
-                            <span>
-                                <img src="resources/imagens/logos/spv.png" alt="SPV" class="zoom">
-                            </span>
-                        </a>
-                        <a href="">
-                            <h3>SPV</h3>
+        <div class="main">
+            <section>
+                <section>
+                    <header>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-4 align-self-center d-flex justify-content-start">
+                                    <div class="navbar">
+                                        <a href="index.html">
+                                            <span>
+                                                <img src="resources/imagens/branding/logotipo.png" alt="Media Markt">
+                                            </span>
+                                            <p>
+                                                Braga
+                                            </p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 align-self-center d-flex justify-content-center">
+                                    <div id="sidebar_button" class="sidebar_button">
+                                        <button id="openNav" onclick="sidebar()" class="fa fa-solid fa-bars"></button>
+                                        <button id="closeNav" onclick="sidebar()" class="fa fa-regular fa-circle-xmark"></button>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 align-self-center d-flex justify-content-end">
+                                    <div class="navbar-content mini-profile">
+                                        <div class="login">
+                                            <button id="login-btn">Iniciar Sessão</button>
+                                        </div>
+                                        <div id="user-info">
+                                            <div>
+                                                <button id="logoutButton">Logout</button>
+                                            </div>
+                                            <div>
+                                                <div>
+                                                    <p id="user-name"></p>
+                                                    <p id="user-code"></p>
+                                                </div>
+                                                <div>
+                                                    <a href="account.html">
+                                                        <span>
+                                                            <img id="user-photo" alt="Foto de Usuário">
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-12 header_hr">
+                                        <hr id="header_hr">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                </section>
+            </section>
+    
+            <div id="main">
+                <section>
+                    <div class="return">
+                        <a href="index.html">
+                            <span class="fa-solid fa-reply"></span>
+                            Voltar
                         </a>
                     </div>
-                    <div class="col-md-3">
-                        <a onclick="serviceFunction()" target="_blank" id="service_menu">
-                            <span>
-                                <img src="resources/imagens/logos/service.png" alt="Service" class="zoom">
-                            </span>
-                        </a>
-                        <a href="">
-                            <h3>Service</h3>
-                        </a>
+                    <div class="titulos">
+                        <h1>Transferências</h1>
                     </div>
-                    <div class="col-md-3">
-                        <a onclick="telecomFunction()" target="_blank" id="telecom_menu">
-                            <span>
-                                <img src="resources/imagens/logos/telecom.png" alt="Telecom" class="zoom">
-                            </span>
-                        </a>
-                        <a href="">
-                            <h3>Telecom</h3>
-                        </a>
+                </section>
+        
+                <section class="department">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <a onclick="spvFunction()" target="_blank" id="SPV_menu">
+                                    <span>
+                                        <img src="resources/imagens/logos/spv.png" alt="SPV" class="zoom">
+                                    </span>
+                                </a>
+                                <a href="">
+                                    <h3>SPV</h3>
+                                </a>
+                            </div>
+                            <div class="col-md-3">
+                                <a onclick="serviceFunction()" target="_blank" id="service_menu">
+                                    <span>
+                                        <img src="resources/imagens/logos/service.png" alt="Service" class="zoom">
+                                    </span>
+                                </a>
+                                <a href="">
+                                    <h3>Service</h3>
+                                </a>
+                            </div>
+                            <div class="col-md-3">
+                                <a onclick="telecomFunction()" target="_blank" id="telecom_menu">
+                                    <span>
+                                        <img src="resources/imagens/logos/telecom.png" alt="Telecom" class="zoom">
+                                    </span>
+                                </a>
+                                <a href="">
+                                    <h3>Telecom</h3>
+                                </a>
+                            </div>
+                            <div class="col-md-3">
+                                <a onclick="b2bFunction()" target="_blank" id="b2b_menu">
+                                    <span>
+                                        <img src="resources/imagens/logos/b2b.png" alt="B2B" class="zoom">
+                                    </span>
+                                </a>
+                                <a href="">
+                                    <h3>Business 2 Business</h3>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-3">
-                        <a onclick="b2bFunction()" target="_blank" id="b2b_menu">
-                            <span>
-                                <img src="resources/imagens/logos/b2b.png" alt="B2B" class="zoom">
-                            </span>
-                        </a>
-                        <a href="">
-                            <h3>Business 2 Business</h3>
-                        </a>
+                </section>
+        
+                <section class="transferencias">
+                    <div class="menu">
+                        <div id="SPV" class="container department-choice">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="card-img">
+                                        <a href="resources/files/declaracao_material_edit.pdf" target="_blank">
+                                            <span>
+                                                <i class="fa fa-regular fa-file-lines"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="card-box">
+                                        <a href="resources/files/declaracao_material_edit.pdf" target="_blank">
+                                            <h4>Declaração de entrega de material</h4>
+                                            <p>Documento de verificação de entrega de material.</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card-img">
+                                        <a href="resources/files/recolha_material_online_edit.pdf" target="_blank">
+                                            <span>
+                                                <i class="fa fa-regular fa-file-lines"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="card-box">
+                                        <a href="resources/files/recolha_material_online_edit.pdf" target="_blank">
+                                            <h4>Declaração de entrega de material online</h4>
+                                            <p>Documento de verificação de entrega de material online.</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card-img">
+                                        <a href="resources/files/tabela_de_precos_2024.pdf" target="_blank">
+                                            <span>
+                                                <i class="fa fa-solid fa-table-list"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="card-box">
+                                        <a href="resources/files/tabela_de_precos_2024.pdf" target="_blank">
+                                            <h4>Tabela de Preços do Service</h4>
+                                            <p>Tabela de preços dos serviços prestados no Service</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="card-img">
+                                        <a href="resources/files/declaracao_material.pdf" target="_blank">
+                                            <span>
+                                                <i class="fa fa-regular fa-file"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="card-box">
+                                        <a href="resources/files/declaracao_material.pdf" target="_blank">
+                                            <h4>Declaração de entrega de material não editável</h4>
+                                            <p>Versão não editável do documento de verificação de entrega de material.</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card-img">
+                                        <a href="resources/files/recolha_material_online.pdf" target="_blank">
+                                            <span>
+                                                <i class="fa fa-regular fa-file"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="card-box">
+                                        <a href="resources/files/recolha_material_online.pdf" target="_blank">
+                                            <h4>Declaração de entrega de material online não editável</h4>
+                                            <p>Versão não editável do documento de verificação de entrega de material online.</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card-img">
+                                        <a href="resources/files/reclamacao.pdf" target="_blank">
+                                            <span>
+                                                <i class="fa fa-regular fa-file"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="card-box">
+                                        <a href="resources/files/reclamacao.pdf" target="_blank">
+                                            <h4>Declaração de reclamação</h4>
+                                            <p>Documento de sugestão, reclamação ou louvor</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </section>
+        
+                <section class="transferencias">
+                    <div class="menu">
+                        <div id="service" class="container department-choice">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="card-img">
+                                        <a href="resources/files/teste_equipamento.pdf" target="_blank">
+                                            <span>
+                                                <i class="fa fa-regular fa-file-lines"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="card-box">
+                                        <a href="resources/files/Folha_de_Testes.pdf" target="_blank">
+                                            <h4>Folha de testes telemovel</h4>
+                                            <p>Documento de verificação de entrada de telemoveis.</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card-img">
+                                        <a href="resources/files/Orçamento_edit.pdf" target="_blank">
+                                            <span>
+                                                <i class="fa fa-regular fa-file-lines"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="card-box">
+                                        <a href="resources/files/Orçamento_edit.pdf" target="_blank">
+                                            <h4>Pedido de orçamento</h4>
+                                            <p>Documento para solicitar orçamento que não esteja na tabela.</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card-img">
+                                        <a href="resources/files/tabela_de_precos_2024.pdf" target="_blank">
+                                            <span>
+                                                <i class="fa fa-solid fa-table-list"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="card-box">
+                                        <a href="resources/files/tabela_de_precos_2024.pdf" target="_blank">
+                                            <h4>Tabela de Preços</h4>
+                                            <p>Tabela de preços dos serviços prestados no Service</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+        
+                <section class="transferencias">
+                    <div class="menu">
+                        <div id="telecom" class="container department-choice">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <span>
+                                        <i class="alert fa-solid fa-triangle-exclamation"></i>
+                                    </span>
+                                </div>
+                                <div class="col-md-5">
+                                    <h2>
+                                        ATENÇÃO
+                                    </h2>
+                                    <p>
+                                        Não há garantia de películas, o cliente tem apenas 72 horas para fazer reclamação em loja.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="card-img">
+                                        <a href="resources/files/peliculas_fast_skin.pdf" target="_blank">
+                                            <span>
+                                                <i class="fa fa-regular fa-file-pdf"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="card-box">
+                                        <a href="resources/files/peliculas_fast_skin.pdf" target="_blank">
+                                            <h4>Condições Películas SBS</h4>
+                                            <p>Documento de condições de películas.</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card-img">
+                                        <a href="resources/files/Codigos_Peliculas_SBS.pdf" target="_blank">
+                                            <span>
+                                                <i class="fa fa-regular fa-file-pdf"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="card-box">
+                                        <a href="resources/files/Codigos_Peliculas_SBS.pdf" target="_blank">
+                                            <h4>Codigos de conjunto peliculas</h4>
+                                            <p>Documento de verificação de codigos de conjunto peliculas SBS.</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+        
+                <section class="transferencias">
+                    <div class="menu">
+                        <div id="b2b" class="container department-choice">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="card-img">
+                                        <a href="resources/files/ficha_abertura_cliente_mm.pdf" target="_blank">
+                                            <span>
+                                                <i class="fa fa-regular fa-file-pdf"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="card-box">
+                                        <a href="resources/files/ficha_abertura_cliente_mm.pdf" target="_blank">
+                                            <h4>Ficha de abertura</h4>
+                                            <p>Documento de inscrição de cliente.</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
-        </section>
-
-        <section class="transferencias">
-            <div class="menu">
-                <div id="SPV" class="container department-choice">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="card-img">
-                                <a href="resources/files/declaracao_material_edit.pdf" target="_blank">
-                                    <span>
-                                        <i class="fa fa-regular fa-file-lines"></i>
-                                    </span>
-                                </a>
-                            </div>
-                            <div class="card-box">
-                                <a href="resources/files/declaracao_material_edit.pdf" target="_blank">
-                                    <h4>Declaração de entrega de material</h4>
-                                    <p>Documento de verificação de entrega de material.</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card-img">
-                                <a href="resources/files/recolha_material_online_edit.pdf" target="_blank">
-                                    <span>
-                                        <i class="fa fa-regular fa-file-lines"></i>
-                                    </span>
-                                </a>
-                            </div>
-                            <div class="card-box">
-                                <a href="resources/files/recolha_material_online_edit.pdf" target="_blank">
-                                    <h4>Declaração de entrega de material online</h4>
-                                    <p>Documento de verificação de entrega de material online.</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card-img">
-                                <a href="resources/files/tabela_de_precos_2024.pdf" target="_blank">
-                                    <span>
-                                        <i class="fa fa-solid fa-table-list"></i>
-                                    </span>
-                                </a>
-                            </div>
-                            <div class="card-box">
-                                <a href="resources/files/tabela_de_precos_2024.pdf" target="_blank">
-                                    <h4>Tabela de Preços do Service</h4>
-                                    <p>Tabela de preços dos serviços prestados no Service</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="card-img">
-                                <a href="resources/files/declaracao_material.pdf" target="_blank">
-                                    <span>
-                                        <i class="fa fa-regular fa-file"></i>
-                                    </span>
-                                </a>
-                            </div>
-                            <div class="card-box">
-                                <a href="resources/files/declaracao_material.pdf" target="_blank">
-                                    <h4>Declaração de entrega de material não editável</h4>
-                                    <p>Versão não editável do documento de verificação de entrega de material.</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card-img">
-                                <a href="resources/files/recolha_material_online.pdf" target="_blank">
-                                    <span>
-                                        <i class="fa fa-regular fa-file"></i>
-                                    </span>
-                                </a>
-                            </div>
-                            <div class="card-box">
-                                <a href="resources/files/recolha_material_online.pdf" target="_blank">
-                                    <h4>Declaração de entrega de material online não editável</h4>
-                                    <p>Versão não editável do documento de verificação de entrega de material online.</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card-img">
-                                <a href="resources/files/reclamacao.pdf" target="_blank">
-                                    <span>
-                                        <i class="fa fa-regular fa-file"></i>
-                                    </span>
-                                </a>
-                            </div>
-                            <div class="card-box">
-                                <a href="resources/files/reclamacao.pdf" target="_blank">
-                                    <h4>Declaração de reclamação</h4>
-                                    <p>Documento de sugestão, reclamação ou louvor</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="transferencias">
-            <div class="menu">
-                <div id="service" class="container department-choice">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="card-img">
-                                <a href="resources/files/teste_equipamento.pdf" target="_blank">
-                                    <span>
-                                        <i class="fa fa-regular fa-file-lines"></i>
-                                    </span>
-                                </a>
-                            </div>
-                            <div class="card-box">
-                                <a href="resources/files/Folha_de_Testes.pdf" target="_blank">
-                                    <h4>Folha de testes telemovel</h4>
-                                    <p>Documento de verificação de entrada de telemoveis.</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card-img">
-                                <a href="resources/files/Orçamento_edit.pdf" target="_blank">
-                                    <span>
-                                        <i class="fa fa-regular fa-file-lines"></i>
-                                    </span>
-                                </a>
-                            </div>
-                            <div class="card-box">
-                                <a href="resources/files/Orçamento_edit.pdf" target="_blank">
-                                    <h4>Pedido de orçamento</h4>
-                                    <p>Documento para solicitar orçamento que não esteja na tabela.</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card-img">
-                                <a href="resources/files/tabela_de_precos_2024.pdf" target="_blank">
-                                    <span>
-                                        <i class="fa fa-solid fa-table-list"></i>
-                                    </span>
-                                </a>
-                            </div>
-                            <div class="card-box">
-                                <a href="resources/files/tabela_de_precos_2024.pdf" target="_blank">
-                                    <h4>Tabela de Preços</h4>
-                                    <p>Tabela de preços dos serviços prestados no Service</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="transferencias">
-            <div class="menu">
-                <div id="telecom" class="container department-choice">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <span>
-                                <i class="alert fa-solid fa-triangle-exclamation"></i>
-                            </span>
-                        </div>
-                        <div class="col-md-5">
-                            <h2>
-                                ATENÇÃO
-                            </h2>
-                            <p>
-                                Não há garantia de películas, o cliente tem apenas 72 horas para fazer reclamação em loja.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="card-img">
-                                <a href="resources/files/peliculas_fast_skin.pdf" target="_blank">
-                                    <span>
-                                        <i class="fa fa-regular fa-file-pdf"></i>
-                                    </span>
-                                </a>
-                            </div>
-                            <div class="card-box">
-                                <a href="resources/files/peliculas_fast_skin.pdf" target="_blank">
-                                    <h4>Condições Películas SBS</h4>
-                                    <p>Documento de condições de películas.</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card-img">
-                                <a href="resources/files/Codigos_Peliculas_SBS.pdf" target="_blank">
-                                    <span>
-                                        <i class="fa fa-regular fa-file-pdf"></i>
-                                    </span>
-                                </a>
-                            </div>
-                            <div class="card-box">
-                                <a href="resources/files/Codigos_Peliculas_SBS.pdf" target="_blank">
-                                    <h4>Codigos de conjunto peliculas</h4>
-                                    <p>Documento de verificação de codigos de conjunto peliculas SBS.</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="transferencias">
-            <div class="menu">
-                <div id="b2b" class="container department-choice">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="card-img">
-                                <a href="resources/files/ficha_abertura_cliente_mm.pdf" target="_blank">
-                                    <span>
-                                        <i class="fa fa-regular fa-file-pdf"></i>
-                                    </span>
-                                </a>
-                            </div>
-                            <div class="card-box">
-                                <a href="resources/files/ficha_abertura_cliente_mm.pdf" target="_blank">
-                                    <h4>Ficha de abertura</h4>
-                                    <p>Documento de inscrição de cliente.</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="footer">
-            <footer>
-                <div class="right">
-                    <a href="../departamentos/service.html">
-                        <h5>Service</h5>
-                    </a>
-                </div>
-                <div class="clear"></div>
-            </footer>
-        </section>
+        </div>
 
     </div>
 </body>

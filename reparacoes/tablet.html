@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 
 <head>
     <meta charset="UTF-8">
@@ -10,124 +10,190 @@
     <link rel="stylesheet" href="../resources/tools/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../resources/css/style.css">
     <script src="https://kit.fontawesome.com/e37222f816.js" crossorigin="anonymous"></script>
+    <script src="../resources/js/button_funciton.js"></script>
+    <script type="module" src="../resources/js/firebase_auth.js"></script>
 </head>
 
 
 <body class="grey">
     <div class="page-wrapper">
 
-        <section>
-            <header>
-                <div class="navbar">
-                    <a href="../index.html">
-                        <span>
-                            <img src="../resources/imagens/branding/logotipo.png" alt="Media Markt">
-                        </span>
-                        <p>
-                            Braga
-                        </p>
-                    </a>
+        <section class="sidebar_wrapper">
+            <div class="container-fluid">
+                <div class="sidebar fill" id="sidebar" style="display: none;">
+                    <a href="../cross_selling.html" class="sidebar_generic">Cross-Selling</a>
+                    <a href="../transferencias.html" class="sidebar_generic">Transferências</a>
+                    <a href="../departamentos/service.html" class="sidebar_hidden" id="sidebar_service">Service</a>
+                    <a href="../departamentos/spv.html" class="sidebar_hidden" id="sidebar_spv">SPV</a>
+                    <a href="../departamentos/informatica.html" class="sidebar_hidden" id="sidebar_informatica">Informatica</a>
+                    <a href="../departamentos/b2b.html" class="sidebar_hidden" id="sidebar_b2b">B2B</a>
+                    <a href="../signin.html" class="sidebar_hidden" id="sidebar_signin">Signin</a>
                 </div>
-            </header>
-        </section>
-
-        <section>
-            <div class="return">
-                <a href="../reparacoes.html">
-                    <span class="fa-solid fa-reply"></span>
-                    Voltar
-                </a>
-            </div>
-
-            <div class="titulos">
-                <h1>Serviços Smartphone e Tablet</h1>
             </div>
         </section>
 
-        <section class="tabela_precos computador">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="table-wrap">
-                            <table>
-                                <fieldset>
-                                    <thead>
-                                        <tr>
-                                            <td colspan="5">
-                                                <h3>Tabela Geral de Preços</h3>
-                                            </td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td rowspan="100">
-                                                <h3>Serviços Smartphone <br> e Tablet</h3>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h4>Sistema operativo</h4>
-                                            </td>
-                                            <td>
-                                                <p>Restauro de Sistema Operativo</p>
-                                            </td>
-                                            <td>
-                                                <span class="table_price">14,90€</span>
-                                            </td>
-                                            <td>
-                                                <span class="table_code">1221483</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h4>Contactos</h4>
-                                            </td>
-                                            <td>
-                                                <p>Copia de Contactos/Fotos</p>
-                                            </td>
-                                            <td>
-                                                <span class="table_price">19,00€</span>
-                                            </td>
-                                            <td>
-                                                <span class="table_code">1120727</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h4>Copia de Dados</h4>
-                                            </td>
-                                            <td>
-                                                <p>Copia de dados entre equipamentos com configuração</p>
-                                            </td>
-                                            <td>
-                                                <span class="table_price">29,00€</span>
-                                            </td>
-                                            <td>
-                                                <span class="table_code">111007527</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h4>Instalação de Periféricos</h4>
-                                            </td>
-                                            <td>
-                                                <p>Configuração de dispositivo bluetooh</p>
-                                            </td>
-                                            <td>
-                                                <span class="table_price">9,99€</span>
-                                            </td>
-                                            <td>
-                                                <span class="table_code">1247287</span>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </fieldset>
-                            </table>
+        <div class="main">
+            <section>
+                <header>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-4 align-self-center d-flex justify-content-start">
+                                <div class="navbar">
+                                    <a href="../index.html">
+                                        <span>
+                                            <img src="../resources/imagens/branding/logotipo.png" alt="Media Markt">
+                                        </span>
+                                        <p>
+                                            Braga
+                                        </p>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 align-self-center d-flex justify-content-center">
+                                <div id="sidebar_button" class="sidebar_button">
+                                    <button id="openNav" onclick="sidebar()" class="fa fa-solid fa-bars"></button>
+                                    <button id="closeNav" onclick="sidebar()" class="fa fa-regular fa-circle-xmark"></button>
+                                </div>
+                            </div>
+                            <div class="col-md-4 align-self-center d-flex justify-content-end">
+                                <div class="navbar-content mini-profile">
+                                    <div class="login">
+                                        <button id="login-btn">Iniciar Sessão</button>
+                                    </div>
+                                    <div id="user-info">
+                                        <div>
+                                            <button id="logoutButton">Logout</button>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <p id="user-name"></p>
+                                                <p id="user-code"></p>
+                                            </div>
+                                            <div>
+                                                <a href="../account.html">
+                                                    <span>
+                                                        <img id="user-photo" alt="Foto de Usuário">
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                    <div>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12 header_hr">
+                                    <hr id="header_hr">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+            </section>
+    
+            <div id="main">
+                <section>
+                    <div class="return">
+                        <a href="../reparacoes.html">
+                            <span class="fa-solid fa-reply"></span>
+                            Voltar
+                        </a>
+                    </div>
+        
+                    <div class="titulos">
+                        <h1>Serviços Smartphone e Tablet</h1>
+                    </div>
+                </section>
+        
+                <section class="tabela_precos computador">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="table-wrap">
+                                    <table>
+                                        <fieldset>
+                                            <thead>
+                                                <tr>
+                                                    <td colspan="5">
+                                                        <h3>Tabela Geral de Preços</h3>
+                                                    </td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td rowspan="100">
+                                                        <h3>Serviços Smartphone <br> e Tablet</h3>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h4>Sistema operativo</h4>
+                                                    </td>
+                                                    <td>
+                                                        <p>Restauro de Sistema Operativo</p>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_price">14,90€</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_code">1221483</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h4>Contactos</h4>
+                                                    </td>
+                                                    <td>
+                                                        <p>Copia de Contactos/Fotos</p>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_price">19,00€</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_code">1120727</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h4>Copia de Dados</h4>
+                                                    </td>
+                                                    <td>
+                                                        <p>Copia de dados entre equipamentos com configuração</p>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_price">29,00€</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_code">111007527</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h4>Instalação de Periféricos</h4>
+                                                    </td>
+                                                    <td>
+                                                        <p>Configuração de dispositivo bluetooh</p>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_price">9,99€</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_code">1247287</span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </fieldset>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
-        </section>
+        </div>
 
 
     </div>

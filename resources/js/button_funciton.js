@@ -109,16 +109,32 @@ function eyeFunction() {
 }
 
 function sidebar() {
-    var w = document.getElementsByTagName("body");
+    var a = document.getElementById("main");
+    var w = document.getElementById("grey");
     var x = document.getElementById("closeNav");
     var y = document.getElementById("sidebar");
     var z = document.getElementById("openNav");
+
+    x.disabled = true;
+    setTimeout(() =>
+    {
+        x.disabled = false;
+    }, 2000);
+
+    z.disabled = true;
+    setTimeout(() =>
+    {
+        z.disabled = false;
+    }, 2000);
 
     if(y.style.display === 'none'){
         y.style.display = "flex";
         setTimeout(() => {
             y.style.height = "100%";
         }, 10);
+        setTimeout(() => {
+            a.style.display = "none"
+        }, 1000);
         z.style.display = "none";
         x.style.display = "inline-block";
         w.style.overflow = "hidden";
@@ -128,6 +144,52 @@ function sidebar() {
             y.style.display = "none";
             x.style.display = "none";
             z.style.display = "inline-block";
+            a.style.display = "block"
+            w.style.overflow = "auto";
+        }, 50);
+    } 
+  }
+
+  function longSidebar() {
+    var a = document.getElementById("main");
+    var c = document.getElementById("img-modal");
+    var w = document.getElementById("grey");
+    var x = document.getElementById("closeNav");
+    var y = document.getElementById("sidebar");
+    var z = document.getElementById("openNav");
+
+    x.disabled = true;
+    setTimeout(() =>
+    {
+        x.disabled = false;
+    }, 2000);
+
+    z.disabled = true;
+    setTimeout(() =>
+    {
+        z.disabled = false;
+    }, 2000);
+
+    if(y.style.display === 'none'){
+        y.style.display = "flex";
+        c.style.display = "none";
+        setTimeout(() => {
+            y.style.height = "100%";
+        }, 10);
+        setTimeout(() => {
+            a.style.display = "none"
+        }, 1000);
+        z.style.display = "none";
+        x.style.display = "inline-block";
+        w.style.overflow = "hidden";
+    } else{
+        setTimeout(() => {
+            y.style.height = "0";
+            y.style.display = "none";
+            x.style.display = "none";
+            z.style.display = "inline-block";
+            a.style.display = "block"
+            c.style.display = "block";
             w.style.overflow = "auto";
         }, 50);
     } 

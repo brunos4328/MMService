@@ -66,14 +66,14 @@ async function updateUI(user) {
                 console.log('Usuário administrador');
             }
             else {
-                window.location.href = "login.html";
+                window.location.href = "../../../index.html";
             }
 
         } else {
             console.log("Nenhum detalhe do usuário encontrado.");
         }
     } else {
-        window.location.href = "login.html";
+        window.location.href = "../../../login.html";
     }
 }
 
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
       logoutButton.addEventListener("click", () => {
           signOut(auth).then(() => {
               console.log("Usuário deslogado com sucesso.");
-              window.location.href = "../index.html";
+              window.location.href = "../../../login.html";
           }).catch((error) => {
               console.error("Erro ao deslogar:", error);
           });

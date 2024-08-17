@@ -1,49 +1,113 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Service</title>
+    <title>SPV</title>
     <link rel="shortcut icon" href="../resources/imagens/branding/logotipo.png" type="image/x-icon">
     <link rel="stylesheet" href="../resources/tools/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../resources/css/style.css">
     <script src="https://kit.fontawesome.com/e37222f816.js" crossorigin="anonymous"></script>
     <script type="module" src="../resources/js/user_auth.js"></script>
     <script src="../resources/js/button_funciton.js"></script>
+    <script src="../resources/js/button_funciton.js"></script>
+    <script type="module" src="../resources/js/firebase_auth.js"></script>
 </head>
 
 
 <body class="grey">
     <div class="page-wrapper transferencias">
 
-        <section>
-            <header>
-                <div class="navbar">
-                    <a href="../index.html">
-                        <span>
-                            <img src="../resources/imagens/branding/logotipo.png" alt="Media Markt">
-                        </span>
-                        <p>
-                            Braga
-                        </p>
-                    </a>
-                </div>
-            </header>
+        <section class="sidebar_wrapper">
+            <div class="sidebar" id="sidebar" style="display: none;">
+                <a href="../cross_selling.html" class="sidebar_generic">Cross-Selling</a>
+                <a href="../transferencias.html" class="sidebar_generic">Transferências</a>
+                <a href="../departamentos/service.html" class="sidebar_hidden" id="sidebar_service">Service</a>
+                <a href="../departamentos/spv.html" class="sidebar_hidden" id="sidebar_spv">SPV</a>
+                <a href="../departamentos/informatica.html" class="sidebar_hidden" id="sidebar_informatica">Informatica</a>
+                <a href="../departamentos/b2b.html" class="sidebar_hidden" id="sidebar_b2b">B2B</a>
+                <a href="../signin.html" class="sidebar_hidden" id="sidebar_signin">Signin</a>
+            </div>
         </section>
 
-        <section>
-            <div class="return">
-                <a href="../index.html" id="logoutButton">
-                    <span class="fa-solid fa-reply"></span>
-                    Voltar
-                </a>
+        <div class="main">
+            <section>
+                <header>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-4 align-self-center d-flex justify-content-start">
+                                <div class="navbar">
+                                    <a href="../index.html">
+                                        <span>
+                                            <img src="../resources/imagens/branding/logotipo.png" alt="Media Markt">
+                                        </span>
+                                        <p>
+                                            Braga
+                                        </p>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 align-self-center d-flex justify-content-center">
+                                <div id="sidebar_button" class="sidebar_button">
+                                    <button id="openNav" onclick="sidebar()" class="fa fa-solid fa-bars"></button>
+                                    <button id="closeNav" onclick="sidebar()" class="fa fa-regular fa-circle-xmark"></button>
+                                </div>
+                            </div>
+                            <div class="col-md-4 align-self-center d-flex justify-content-end">
+                                <div class="navbar-content mini-profile">
+                                    <div class="login">
+                                        <button id="login-btn">Iniciar Sessão</button>
+                                    </div>
+                                    <div id="user-info">
+                                        <div>
+                                            <button id="logoutButton">Logout</button>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <p id="user-name"></p>
+                                                <p id="user-code"></p>
+                                            </div>
+                                            <div>
+                                                <a href="../account.html">
+                                                    <span>
+                                                        <img id="user-photo" alt="Foto de Usuário">
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12 header_hr">
+                                    <hr id="header_hr">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+            </section>
+    
+            <div id="main">
+                <section>
+                    <div class="return">
+                        <a href="../index.html">
+                            <span class="fa-solid fa-reply"></span>
+                            Voltar
+                        </a>
+                    </div>
+                    <div class="titulos">
+                        <h1>SPV</h1>
+                    </div>
+                </section>
             </div>
-            <div class="titulos">
-                <h1>SPV</h1>
-            </div>
-        </section>
+        </div>
 </body>
 
 </html>

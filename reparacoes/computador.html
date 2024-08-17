@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 
 <head>
     <meta charset="UTF-8">
@@ -10,335 +10,401 @@
     <link rel="stylesheet" href="../resources/tools/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../resources/css/style.css">
     <script src="https://kit.fontawesome.com/e37222f816.js" crossorigin="anonymous"></script>
+    <script src="../resources/js/button_funciton.js"></script>
+    <script type="module" src="../resources/js/firebase_auth.js"></script>
 </head>
 
 
 <body class="grey">
     <div class="page-wrapper">
 
-        <section>
-            <header>
-                <div class="navbar">
-                    <a href="../index.html">
-                        <span>
-                            <img src="../resources/imagens/branding/logotipo.png" alt="Media Markt">
-                        </span>
-                        <p>
-                            Braga
-                        </p>
-                    </a>
+        <section class="sidebar_wrapper">
+            <div class="container-fluid">
+                <div class="sidebar fill" id="sidebar" style="display: none;">
+                    <a href="../cross_selling.html" class="sidebar_generic">Cross-Selling</a>
+                    <a href="../transferencias.html" class="sidebar_generic">Transferências</a>
+                    <a href="../departamentos/service.html" class="sidebar_hidden" id="sidebar_service">Service</a>
+                    <a href="../departamentos/spv.html" class="sidebar_hidden" id="sidebar_spv">SPV</a>
+                    <a href="../departamentos/informatica.html" class="sidebar_hidden" id="sidebar_informatica">Informatica</a>
+                    <a href="../departamentos/b2b.html" class="sidebar_hidden" id="sidebar_b2b">B2B</a>
+                    <a href="../signin.html" class="sidebar_hidden" id="sidebar_signin">Signin</a>
                 </div>
-            </header>
-        </section>
-
-        <section>
-            <div class="return">
-                <a href="../reparacoes.html">
-                    <span class="fa-solid fa-reply"></span>
-                    Voltar
-                </a>
-            </div>
-
-            <div class="titulos">
-                <h1>Computador</h1>
             </div>
         </section>
 
-        <section class="tabela_precos computador">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="table-wrap">
-                            <table>
-                                <fieldset>
-                                    <thead>
-                                        <tr>
-                                            <td colspan="5">
-                                                <h3>Tabela Geral de Preços</h3>
-                                            </td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td rowspan="100">
-                                                <h3>Computador</h3>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td rowspan="2">
-                                                <h4>Sistema operativo</h4>
-                                            </td>
-                                            <td>
-                                                <p>Instalação de sistema operativo de Raiz</p>
-                                            </td>
-                                            <td>
-                                                <span class="table_price">39,00€</span>
-                                            </td>
-                                            <td>
-                                                <span class="table_code">1120732</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Restauro Sistema Operativo</p>
-                                            </td>
-                                            <td>
-                                                <span class="table_price">29,00€</span>
-                                            </td>
-                                            <td>
-                                                <span class="table_code">1120734</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td rowspan="2">
-                                                <h4>Software</h4>
-                                            </td>
-                                            <td>
-                                                <p>Instalação de controladoras/Drivers</p>
-                                            </td>
-                                            <td>
-                                                <span class="table_price">9,90€</span>
-                                            </td>
-                                            <td>
-                                                <span class="table_code">1120731</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Instalação de Software</p>
-                                            </td>
-                                            <td>
-                                                <span class="table_price">9,90€</span>
-                                            </td>
-                                            <td>
-                                                <span class="table_code">1120731</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td rowspan="2">
-                                                <h4>Segurança</h4>
-                                            </td>
-                                            <td>
-                                                <p>Instalação de Anti-Vírus</p>
-                                            </td>
-                                            <td>
-                                                <span class="table_price">14,90€</span>
-                                            </td>
-                                            <td>
-                                                <span class="table_code">1166084</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Remoção de Virus/Malware/Trojans</p>
-                                            </td>
-                                            <td>
-                                                <span class="table_price">19,00€</span>
-                                            </td>
-                                            <td>
-                                                <span class="table_code">1120733</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td rowspan="4">
-                                                <h4>Copia e Recuperação de dados</h4>
-                                            </td>
-                                            <td>
-                                                <p>Copia de Segurança (Até 30 Gb)</p>
-                                            </td>
-                                            <td>
-                                                <span class="table_price">29,00€</span>
-                                            </td>
-                                            <td>
-                                                <span class="table_code">1120725</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Copia de Segurança (Mais 30 Gb)</p>
-                                            </td>
-                                            <td>
-                                                <span class="table_price">49,00€</span>
-                                            </td>
-                                            <td>
-                                                <span class="table_code">1120726</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Recuperação de Dados PEN/Cartão Memória</p>
-                                            </td>
-                                            <td>
-                                                <span class="table_price">desde 29,00€</span>
-                                            </td>
-                                            <td>
-                                                <span class="table_code">1120725</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Recuperação de Dados HDD</p>
-                                            </td>
-                                            <td>
-                                                <span class="table_price">desde 49,00€</span>
-                                            </td>
-                                            <td>
-                                                <span class="table_code">1120726</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td rowspan="1">
-                                                <h4>Instalação de disco SSD</h4>
-                                            </td>
-                                            <td>
-                                                <p>Instalação de SSD</p>
-                                            </td>
-                                            <td>
-                                                <span class="table_price">44,00€</span>
-                                            </td>
-                                            <td>
-                                                <span class="table_code">1166086</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td rowspan="2">
-                                                <h4>
-                                                    Instalação de Periféricos
-                                                </h4>
-                                            </td>
-                                            <td>
-                                                <p>Instalação Impressora</p>
-                                            </td>
-                                            <td>
-                                                <span class="table_price">19,00€</span>
-                                            </td>
-                                            <td>
-                                                <span class="table_code">1120730</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Instalação de dispositivo externo</p>
-                                            </td>
-                                            <td>
-                                                <span class="table_price">14,90€</span>
-                                            </td>
-                                            <td>
-                                                <span class="table_code">1120730</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td rowspan="9">
-                                                <h4>
-                                                    Serviços de Micro Informática
-                                                </h4>
-                                            </td>
-                                            <td>
-                                                <p>Instalação de Memoria RAM</p>
-                                            </td>
-                                            <td>
-                                                <span class="table_price">19,00€</span>
-                                            </td>
-                                            <td>
-                                                <span class="table_code">1231325</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Limpeza e manutenção interna Portátil</p>
-                                            </td>
-                                            <td>
-                                                <span class="table_price">39,00€</span>
-                                            </td>
-                                            <td>
-                                                <span class="table_code">1120730</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Limpeza e manutenção interna Desktop</p>
-                                            </td>
-                                            <td>
-                                                <span class="table_price">29,00€</span>
-                                            </td>
-                                            <td>
-                                                <span class="table_code">1120730</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Substituição DC-IN (Pino carregamento)</p>
-                                            </td>
-                                            <td>
-                                                <span class="table_price">Orçamento</span>
-                                            </td>
-                                            <td>
-                                                <span class="table_code">1120730</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Reparação de Carregador</p>
-                                            </td>
-                                            <td>
-                                                <span class="table_price">Orçamento</span>
-                                            </td>
-                                            <td>
-                                                <span class="table_code">1120730</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Substituição Teclado (Portátil)</p>
-                                            </td>
-                                            <td>
-                                                <span class="table_price">Orçamento</span>
-                                            </td>
-                                            <td>
-                                                <span class="table_code">1229767</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Substituição de Bateria (Portátil)</p>
-                                            </td>
-                                            <td>
-                                                <span class="table_price">Orçamento</span>
-                                            </td>
-                                            <td>
-                                                <span class="table_code">1230072</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Reparação/substituição de dobradiças (Portátil)</p>
-                                            </td>
-                                            <td>
-                                                <span class="table_price">Orçamento</span>
-                                            </td>
-                                            <td>
-                                                <span class="table_code">1276045</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Substituição LCD Display (Portátil)</p>
-                                            </td>
-                                            <td>
-                                                <span class="table_price">Orçamento</span>
-                                            </td>
-                                            <td>
-                                                <span class="table_code">1229766</span>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </fieldset>
-                            </table>
+        <div class="main">
+            <section>
+                <header>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-4 align-self-center d-flex justify-content-start">
+                                <div class="navbar">
+                                    <a href="../index.html">
+                                        <span>
+                                            <img src="../resources/imagens/branding/logotipo.png" alt="Media Markt">
+                                        </span>
+                                        <p>
+                                            Braga
+                                        </p>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 align-self-center d-flex justify-content-center">
+                                <div id="sidebar_button" class="sidebar_button">
+                                    <button id="openNav" onclick="sidebar()" class="fa fa-solid fa-bars"></button>
+                                    <button id="closeNav" onclick="sidebar()" class="fa fa-regular fa-circle-xmark"></button>
+                                </div>
+                            </div>
+                            <div class="col-md-4 align-self-center d-flex justify-content-end">
+                                <div class="navbar-content mini-profile">
+                                    <div class="login">
+                                        <button id="login-btn">Iniciar Sessão</button>
+                                    </div>
+                                    <div id="user-info">
+                                        <div>
+                                            <button id="logoutButton">Logout</button>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <p id="user-name"></p>
+                                                <p id="user-code"></p>
+                                            </div>
+                                            <div>
+                                                <a href="../account.html">
+                                                    <span>
+                                                        <img id="user-photo" alt="Foto de Usuário">
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                    <div>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12 header_hr">
+                                    <hr id="header_hr">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+            </section>
+    
+            <div id="main">
+                <section>
+                    <div class="return">
+                        <a href="../reparacoes.html">
+                            <span class="fa-solid fa-reply"></span>
+                            Voltar
+                        </a>
+                    </div>
+        
+                    <div class="titulos">
+                        <h1>Computador</h1>
+                    </div>
+                </section>
+        
+                <section class="tabela_precos computador">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="table-wrap">
+                                    <table>
+                                        <fieldset>
+                                            <thead>
+                                                <tr>
+                                                    <td colspan="5">
+                                                        <h3>Tabela Geral de Preços</h3>
+                                                    </td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td rowspan="100">
+                                                        <h3>Computador</h3>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td rowspan="2">
+                                                        <h4>Sistema operativo</h4>
+                                                    </td>
+                                                    <td>
+                                                        <p>Instalação de sistema operativo de Raiz</p>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_price">39,00€</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_code">1120732</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p>Restauro Sistema Operativo</p>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_price">29,00€</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_code">1120734</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td rowspan="2">
+                                                        <h4>Software</h4>
+                                                    </td>
+                                                    <td>
+                                                        <p>Instalação de controladoras/Drivers</p>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_price">9,90€</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_code">1120731</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p>Instalação de Software</p>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_price">9,90€</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_code">1120731</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td rowspan="2">
+                                                        <h4>Segurança</h4>
+                                                    </td>
+                                                    <td>
+                                                        <p>Instalação de Anti-Vírus</p>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_price">14,90€</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_code">1166084</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p>Remoção de Virus/Malware/Trojans</p>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_price">19,00€</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_code">1120733</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td rowspan="4">
+                                                        <h4>Copia e Recuperação de dados</h4>
+                                                    </td>
+                                                    <td>
+                                                        <p>Copia de Segurança (Até 30 Gb)</p>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_price">29,00€</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_code">1120725</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p>Copia de Segurança (Mais 30 Gb)</p>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_price">49,00€</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_code">1120726</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p>Recuperação de Dados PEN/Cartão Memória</p>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_price">desde 29,00€</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_code">1120725</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p>Recuperação de Dados HDD</p>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_price">desde 49,00€</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_code">1120726</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td rowspan="1">
+                                                        <h4>Instalação de disco SSD</h4>
+                                                    </td>
+                                                    <td>
+                                                        <p>Instalação de SSD</p>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_price">44,00€</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_code">1166086</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td rowspan="2">
+                                                        <h4>
+                                                            Instalação de Periféricos
+                                                        </h4>
+                                                    </td>
+                                                    <td>
+                                                        <p>Instalação Impressora</p>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_price">19,00€</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_code">1120730</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p>Instalação de dispositivo externo</p>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_price">14,90€</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_code">1120730</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td rowspan="9">
+                                                        <h4>
+                                                            Serviços de Micro Informática
+                                                        </h4>
+                                                    </td>
+                                                    <td>
+                                                        <p>Instalação de Memoria RAM</p>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_price">19,00€</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_code">1231325</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p>Limpeza e manutenção interna Portátil</p>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_price">39,00€</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_code">1120730</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p>Limpeza e manutenção interna Desktop</p>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_price">29,00€</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_code">1120730</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p>Substituição DC-IN (Pino carregamento)</p>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_price">Orçamento</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_code">1120730</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p>Reparação de Carregador</p>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_price">Orçamento</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_code">1120730</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p>Substituição Teclado (Portátil)</p>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_price">Orçamento</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_code">1229767</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p>Substituição de Bateria (Portátil)</p>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_price">Orçamento</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_code">1230072</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p>Reparação/substituição de dobradiças (Portátil)</p>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_price">Orçamento</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_code">1276045</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p>Substituição LCD Display (Portátil)</p>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_price">Orçamento</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_code">1229766</span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </fieldset>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
-        </section>
+        </div>
 
 
     </div>

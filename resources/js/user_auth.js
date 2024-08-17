@@ -31,8 +31,6 @@ const storage = getStorage(app);
 
 let cropper;
 
-
-
 function handlePhotoUpload(event) {
     const file = event.target.files[0];
     
@@ -93,8 +91,8 @@ async function cropAndUploadImage() {
 document.addEventListener("DOMContentLoaded", () => {
     onAuthStateChanged(auth, (user) => {
         if (!user) {
-            // Se não houver usuário logado, redirecionar para login_service.html
-            window.location.href = "../index.html";
+            // Se não houver usuário logado, redirecionar para login.html
+            window.location.href = "../../login.html";
         } else {
             console.log("Usuário logado:", user.uid);
             updateUI(user);
@@ -173,6 +171,8 @@ async function fetchUserDetails(userEmail) {
 }
 
 
+
+
   // Função para salvar o perfil do usuário
 async function saveUserProfile() {
     const user = auth.currentUser;
@@ -230,11 +230,50 @@ async function updateUI(user) {
             document.getElementById('user-phone-input').value = userDetails.userphone || '';
 
             document.getElementById('user-category-input').value = userDetails.category || 'empty';
+
+            // mini-perfil
+
+            if (userDetails.category === 'Service') {
+                document.getElementById('sidebar_service').style.display = 'inline-block';
+            }
+            else {
+            }  
+  
+            if (userDetails.category === 'Spv') {
+              document.getElementById('sidebar_spv').style.display = 'inline-block';
+            }
+            else {
+            }  
+  
+            if (userDetails.category === 'Informatica') {
+              document.getElementById('sidebar_informatica').style.display = 'inline-block';
+            }
+            else {
+            } 
+  
+            if (userDetails.category === 'B2b') {
+              document.getElementById('sidebar_B2b').style.display = 'inline-block';
+              document.getElementById('sidebar_signin').style.display = 'inline-block';
+            }
+            else {
+            } 
+  
+            if (userDetails.category === 'Admin') {
+              document.getElementById('sidebar_service').style.display = 'inline-block';
+              document.getElementById('sidebar_spv').style.display = 'inline-block';
+              document.getElementById('sidebar_informatica').style.display = 'inline-block';
+              document.getElementById('sidebar_b2b').style.display = 'inline-block';
+              document.getElementById('sidebar_signin').style.display = 'inline-block';
+            }
+
         } else {
             console.log("Nenhum detalhe do usuário encontrado.");
         }
     } else {
-        window.location.href = "login_service.html";
+        // Usuário não logado
+        document.getElementById('login-btn').style.display = 'block';
+        document.getElementById('user-info').style.display = 'none';
+        window.location.href = "../../login.html";
     }
 }
 // Verifica o estado de autenticação ao carregar a página

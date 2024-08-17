@@ -5,14 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign In</title>
+    <title>Account Settings</title>
     <link rel="shortcut icon" href="resources/imagens/branding/logotipo.png" type="image/x-icon">
     <link rel="stylesheet" href="resources/tools/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="resources/css/style.css">
     <script src="https://kit.fontawesome.com/e37222f816.js" crossorigin="anonymous"></script>
     <link  href="https://unpkg.com/cropperjs@1.5.12/dist/cropper.min.css" rel="stylesheet"/>
     <script src="https://unpkg.com/cropperjs@1.5.12/dist/cropper.min.js"></script>
-
     <script src="resources/js/button_funciton.js"></script>
     <script type="module" src="resources/js/user_auth.js"></script>
 </head>
@@ -22,99 +21,143 @@
 
     <div class="page-wrapper transferencias">
 
-        <section>
-            <header>
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="navbar">
-                            <a href="index.html">
-                                <span>
-                                    <img src="resources/imagens/branding/logotipo.png" alt="Media Markt">
-                                </span>
-                                <p>
-                                    Braga
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </header>
-        </section>
-
-        <section>
-            <div class="return">
-                <a href="index.html" id="logoutButton">
-                    <span class="fa-solid fa-reply"></span>
-                    Voltar
-                </a>
-            </div>
-            <div class="titulos">
-                <h1>User Account</h1>
+        <section class="sidebar_wrapper">
+            <div class="sidebar" id="sidebar" style="display: none;">
+                <a href="cross_selling.html" class="sidebar_generic">Cross-Selling</a>
+                <a href="transferencias.html" class="sidebar_generic">Transferências</a>
+                <a href="departamentos/service.html" class="sidebar_hidden" id="sidebar_service">Service</a>
+                <a href="departamentos/spv.html" class="sidebar_hidden" id="sidebar_spv">SPV</a>
+                <a href="departamentos/informatica.html" class="sidebar_hidden" id="sidebar_informatica">Informatica</a>
+                <a href="departamentos/b2b.html" class="sidebar_hidden" id="sidebar_b2b">B2B</a>
+                <a href="signin.html" class="sidebar_hidden" id="sidebar_signin">Signin</a>
             </div>
         </section>
 
-        <section class="account">
-            <div class="container rounded bg-white mt-5 mb-5">
-                <div class="row justify-content-center">
-                    <div class="col-md-3 border-right">
-                        <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                            <div>
-                                <img class="rounded-circle mt-5" width="150px" id="user-photo" style="cursor: pointer;">
-                                <input type="file" id="fileInput" accept="image/" style="display: none;">
-                            </div>
-                            <span class="font-weight-bold" id="user-name"></span>
-                            <span class="text-black-50" id="user-email"></span>
-                            <span class="text-black-50" id="user-code"></span>
-                            <span></span>
-                        </div>
-                        <div id="cropperModal" style="display: none;">
-                            <div>
-                                <h2>Recorte a Imagem</h2>
-                                <img id="imageToCrop" style="max-width: 100%;">
-                                <button id="cropButton">Recortar e Enviar</button>
-                                <button id="cancelButton">Cancelar</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-5 border-right">
-                        <div class="p-3 py-5">
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <h4 class="text-right">Profile Settings</h4>
-                            </div>
-                            <div class="row mt-2">
-                                <div class="col-md-6">
-                                    <label class="labels">Nome</label>
-                                    <input type="text" class="form-control" placeholder="Nome de Usuario" value="" id="user-name-input">
+        
+
+        <div class="main">
+            <section>
+                <header>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-4 align-self-center d-flex justify-content-start">
+                                <div class="navbar">
+                                    <a href="index.html">
+                                        <span>
+                                            <img src="resources/imagens/branding/logotipo.png" alt="Media Markt">
+                                        </span>
+                                        <p>
+                                            Braga
+                                        </p>
+                                    </a>
                                 </div>
                             </div>
-                            <div class="row mt-3">
-                                <div class="col-md-12">
-                                    <label class="labels">Numero de Telemovel</label>
-                                    <input type="text" class="form-control" placeholder="Numero de Telemovel" value="" id="user-phone-input">
-                                </div>
-                                <div class="col-md-12">
-                                    <label class="labels">Email</label>
-                                    <input type="text" class="form-control" placeholder="Email" value="" id="user-email-input" readonly>
-                                </div>
-                                <div class="col-md-12">
-                                    <label class="labels">Codigo de colaborador</label>
-                                    <input type="text" class="form-control" placeholder="Codigo de Colaborador" value="" id="user-code-input">
-                                </div>
-                                <div class="col-md-12">
-                                    <label class="labels">Departamento</label>
-                                    <input type="text" class="form-control" placeholder="Departamento" value="" id="user-category-input" readonly>
+                            <div class="col-md-4 align-self-center d-flex justify-content-center">
+                                <div id="sidebar_button" class="sidebar_button">
+                                    <button id="openNav" onclick="sidebar()" class="fa fa-solid fa-bars"></button>
+                                    <button id="closeNav" onclick="sidebar()" class="fa fa-regular fa-circle-xmark"></button>
                                 </div>
                             </div>
-                            <div class="mt-5 text-center">
-                                <button class="btn btn-primary profile-button" type="button" id="saveProfileButton">Salvar Perfil</button>
+                            <div class="col-md-4 align-self-center d-flex justify-content-end">
+                                <div class="navbar-content mini-profile">
+                                    <div id="user-info">
+                                        <div>
+                                            <button id="logoutButton">Logout</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                    <div>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12 header_hr">
+                                    <hr id="header_hr">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+            </section>
+    
+            <div id="main">
+                <section>
+                    <div class="return">
+                        <a href="index.html">
+                            <span class="fa-solid fa-reply"></span>
+                            Voltar
+                        </a>
+                    </div>
+                    <div class="titulos">
+                        <h1>User Account</h1>
+                    </div>
+                </section>
+        
+                <section class="account">
+                    <div class="container rounded bg-white mt-5 mb-5">
+                        <div class="row justify-content-center">
+                            <div class="col-md-3 border-right">
+                                <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                                    <div>
+                                        <img class="rounded-circle mt-5" width="150px" id="user-photo" style="cursor: pointer;">
+                                        <input type="file" id="fileInput" accept="image/" style="display: none;">
+                                    </div>
+                                    <span class="font-weight-bold" id="user-name"></span>
+                                    <span class="text-black-50" id="user-email"></span>
+                                    <span class="text-black-50" id="user-code"></span>
+                                    <span></span>
+                                </div>
+                                <div id="cropperModal" style="display: none;">
+                                    <div>
+                                        <h2>Recorte a Imagem</h2>
+                                        <img id="imageToCrop" style="max-width: 100%;">
+                                        <button id="cropButton">Recortar e Enviar</button>
+                                        <button id="cancelButton">Cancelar</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5 border-right">
+                                <div class="p-3 py-5">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <h4 class="text-right">Profile Settings</h4>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-md-6">
+                                            <label class="labels">Nome</label>
+                                            <input type="text" class="form-control" placeholder="Nome de Usuario" value="" id="user-name-input">
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-md-12">
+                                            <label class="labels">Numero de Telemovel</label>
+                                            <input type="text" class="form-control" placeholder="Numero de Telemovel" value="" id="user-phone-input">
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label class="labels">Email</label>
+                                            <input type="text" class="form-control" placeholder="Email" value="" id="user-email-input" readonly>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label class="labels">Codigo de colaborador</label>
+                                            <input type="text" class="form-control" placeholder="Codigo de Colaborador" value="" id="user-code-input">
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label class="labels">Departamento</label>
+                                            <input type="text" class="form-control" placeholder="Departamento" value="" id="user-category-input" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="mt-5 text-center">
+                                        <button class="btn btn-primary profile-button" type="button" id="saveProfileButton">Salvar Perfil</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+                </section>
             </div>
-            </div>
-            </div>
-        </section>
+        </div>
     </div>
 </body>
 

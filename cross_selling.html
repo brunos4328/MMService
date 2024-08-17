@@ -5,102 +5,166 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Downloads</title>
+    <title>Cross-Selling</title>
     <link rel="shortcut icon" href="resources/imagens/branding/logotipo.png" type="image/x-icon">
     <link rel="stylesheet" href="resources/tools/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="resources/css/style.css">
     <script src="https://kit.fontawesome.com/e37222f816.js" crossorigin="anonymous"></script>
+    <script src="../resources/js/button_funciton.js"></script>
+    <script type="module" src="../resources/js/firebase_auth.js"></script>
 </head>
 
 
 <body class="grey">
     <div class="page-wrapper cross_selling">
 
-        <section>
-            <header>
-                <div class="navbar">
-                    <a href="index.html">
-                        <span>
-                            <img src="resources/imagens/branding/logotipo.png" alt="Media Markt">
-                        </span>
-                        <p>
-                            Braga
-                        </p>
-                    </a>
-                </div>
-            </header>
-        </section>
-
-        <section>
-            <div class="return">
-                <a href="index.html">
-                    <span class="fa-solid fa-reply"></span>
-                    Voltar
-                </a>
-            </div>
-            <div class="titulos">
-                <h1>Cross-Selling</h1>
+        <section class="sidebar_wrapper">
+            <div class="sidebar" id="sidebar" style="display: none;">
+                <a href="../cross_selling.html" class="sidebar_generic">Cross-Selling</a>
+                <a href="../transferencias.html" class="sidebar_generic">Transferências</a>
+                <a href="../departamentos/service.html" class="sidebar_hidden" id="sidebar_service">Service</a>
+                <a href="../departamentos/spv.html" class="sidebar_hidden" id="sidebar_spv">SPV</a>
+                <a href="../departamentos/informatica.html" class="sidebar_hidden" id="sidebar_informatica">Informatica</a>
+                <a href="../departamentos/b2b.html" class="sidebar_hidden" id="sidebar_b2b">B2B</a>
+                <a href="../signin.html" class="sidebar_hidden" id="sidebar_signin">Signin</a>
             </div>
         </section>
 
-        <section class="department">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <a href="cross_selling/caixas.html">
-                            <span>
-                                <img src="resources/imagens/logos/caixas.png" alt="caixas" class="br_animation shadow">
-                            </span>
-                        </a>
-                        <a href="cross_selling/caixas.html">
-                            <h3>Caixas</h3>
+        <div class="main">
+            <section>
+                <header>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-4 align-self-center d-flex justify-content-start">
+                                <div class="navbar">
+                                    <a href="index.html">
+                                        <span>
+                                            <img src="resources/imagens/branding/logotipo.png" alt="Media Markt">
+                                        </span>
+                                        <p>
+                                            Braga
+                                        </p>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 align-self-center d-flex justify-content-center">
+                                <div id="sidebar_button" class="sidebar_button">
+                                    <button id="openNav" onclick="sidebar()" class="fa fa-solid fa-bars"></button>
+                                    <button id="closeNav" onclick="sidebar()" class="fa fa-regular fa-circle-xmark"></button>
+                                </div>
+                            </div>
+                            <div class="col-md-4 align-self-center d-flex justify-content-end">
+                                <div class="navbar-content mini-profile">
+                                    <div class="login">
+                                        <button id="login-btn">Iniciar Sessão</button>
+                                    </div>
+                                    <div id="user-info">
+                                        <div>
+                                            <button id="logoutButton">Logout</button>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <p id="user-name"></p>
+                                                <p id="user-code"></p>
+                                            </div>
+                                            <div>
+                                                <a href="account.html">
+                                                    <span>
+                                                        <img id="user-photo" alt="Foto de Usuário">
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12 header_hr">
+                                    <hr id="header_hr">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+            </section>
+    
+            <div id="main">
+                <section>
+                    <div class="return">
+                        <a href="index.html">
+                            <span class="fa-solid fa-reply"></span>
+                            Voltar
                         </a>
                     </div>
-                    <div class="col-md-4">
-                        <a href="cross_selling/tv.html">
-                            <span>
-                                <img src="resources/imagens/logos/televisoes.png" alt="TV" class="br_animation shadow">
-                            </span>
-                        </a>
-                        <a href="cross_selling/tv.html">
-                            <h3>TV</h3>
-                        </a>
+                    <div class="titulos">
+                        <h1>Cross-Selling</h1>
                     </div>
-                    <div class="col-md-4">
-                        <a href="cross_selling/it.html">
-                            <span>
-                                <img src="resources/imagens/logos/it.png" alt="IT" class="br_animation shadow">
-                            </span>
-                        </a>
-                        <a href="cross_selling/it.html">
-                            <h3>IT</h3>
-                        </a>
+                </section>
+        
+                <section class="department">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <a href="cross_selling/caixas.html">
+                                    <span>
+                                        <img src="resources/imagens/logos/caixas.png" alt="caixas" class="br_animation shadow">
+                                    </span>
+                                </a>
+                                <a href="cross_selling/caixas.html">
+                                    <h3>Caixas</h3>
+                                </a>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="cross_selling/tv.html">
+                                    <span>
+                                        <img src="resources/imagens/logos/televisoes.png" alt="TV" class="br_animation shadow">
+                                    </span>
+                                </a>
+                                <a href="cross_selling/tv.html">
+                                    <h3>TV</h3>
+                                </a>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="cross_selling/it.html">
+                                    <span>
+                                        <img src="resources/imagens/logos/it.png" alt="IT" class="br_animation shadow">
+                                    </span>
+                                </a>
+                                <a href="cross_selling/it.html">
+                                    <h3>IT</h3>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a href="cross_selling/telecom.html">
+                                    <span>
+                                        <img src="resources/imagens/logos/telecom.png" alt="Telecom" class="br_animation shadow">
+                                    </span>
+                                </a>
+                                <a href="cross_selling/telecom.html">
+                                    <h3>Telecom</h3>
+                                </a>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="cross_selling/lb.html">
+                                    <span>
+                                        <img src="resources/imagens/logos/linha_branca.png" alt="Linha Branca" class="br_animation shadow">
+                                    </span>
+                                </a>
+                                <a href="cross_selling/lb.html">
+                                    <h3>Linha Branca</h3>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <a href="cross_selling/telecom.html">
-                            <span>
-                                <img src="resources/imagens/logos/telecom.png" alt="Telecom" class="br_animation shadow">
-                            </span>
-                        </a>
-                        <a href="cross_selling/telecom.html">
-                            <h3>Telecom</h3>
-                        </a>
-                    </div>
-                    <div class="col-md-6">
-                        <a href="cross_selling/lb.html">
-                            <span>
-                                <img src="resources/imagens/logos/linha_branca.png" alt="Linha Branca" class="br_animation shadow">
-                            </span>
-                        </a>
-                        <a href="cross_selling/lb.html">
-                            <h3>Linha Branca</h3>
-                        </a>
-                    </div>
-                </div>
+                </section>
             </div>
-        </section>
+        </div>
 
     </div>
 </body>

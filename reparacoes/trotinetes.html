@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 
 <head>
     <meta charset="UTF-8">
@@ -10,176 +10,241 @@
     <link rel="stylesheet" href="../resources/tools/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../resources/css/style.css">
     <script src="https://kit.fontawesome.com/e37222f816.js" crossorigin="anonymous"></script>
+    <script src="../resources/js/button_funciton.js"></script>
+    <script type="module" src="../resources/js/firebase_auth.js"></script>
 </head>
 
 
 <body class="grey">
     <div class="page-wrapper">
 
-        <section>
-            <header>
-                <div class="navbar">
-                    <a href="../index.html">
-                        <span>
-                            <img src="../resources/imagens/branding/logotipo.png" alt="Media Markt">
-                        </span>
-                        <p>
-                            Braga
-                        </p>
-                    </a>
+        <section class="sidebar_wrapper">
+            <div class="container-fluid">
+                <div class="sidebar fill" id="sidebar" style="display: none;">
+                    <a href="../cross_selling.html" class="sidebar_generic">Cross-Selling</a>
+                    <a href="../transferencias.html" class="sidebar_generic">Transferências</a>
+                    <a href="../departamentos/service.html" class="sidebar_hidden" id="sidebar_service">Service</a>
+                    <a href="../departamentos/spv.html" class="sidebar_hidden" id="sidebar_spv">SPV</a>
+                    <a href="../departamentos/informatica.html" class="sidebar_hidden" id="sidebar_informatica">Informatica</a>
+                    <a href="../departamentos/b2b.html" class="sidebar_hidden" id="sidebar_b2b">B2B</a>
+                    <a href="../signin.html" class="sidebar_hidden" id="sidebar_signin">Signin</a>
                 </div>
-            </header>
-        </section>
-
-        <section>
-            <div class="return">
-                <a href="../reparacoes.html">
-                    <span class="fa-solid fa-reply"></span>
-                    Voltar
-                </a>
-            </div>
-
-            <div class="titulos">
-                <h1>Trotinetes</h1>
             </div>
         </section>
 
-        <section class="tabela_precos trotinetes">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="table-wrap">
-                            <table>
-                                <fieldset>
-                                    <thead>
-                                        <tr>
-                                            <td colspan="5">
-                                                <h3>Tabela Geral de Preços</h3>
-                                            </td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td rowspan="100">
-                                                <h3>Trotinetes (Apenas <br> Marca Xiaomi)</h3>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td rowspan="5">
-                                                <h4>Rodas</h4>
-                                            </td>
-                                            <td>
-                                                <p>Substituição Pneu traseiro com camera de ar</p>
-                                            </td>
-                                            <td>
-                                                <span class="table_price">34,90€</span>
-                                            </td>
-                                            <td>
-                                                <span class="table_code">1276042</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Substituição Pneu dianteiro com camera de ar</p>
-                                            </td>
-                                            <td>
-                                                <span class="table_price">39,00€</span>
-                                            </td>
-                                            <td>
-                                                <span class="table_code">1276042</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Substituição Pneu Sólido</p>
-                                            </td>
-                                            <td>
-                                                <span class="table_price">29,90€</span>
-                                            </td>
-                                            <td>
-                                                <span class="table_code">1276042</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Substituição da camera de ar</p>
-                                            </td>
-                                            <td>
-                                                <span class="table_price">24,90€</span>
-                                            </td>
-                                            <td>
-                                                <span class="table_code">1276042</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Substituição jante traseira</p>
-                                            </td>
-                                            <td>
-                                                <span class="table_price">39,00€</span>
-                                            </td>
-                                            <td>
-                                                <span class="table_code">1276042</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td rowspan="3">
-                                                <h4>Travões</h4>
-                                            </td>
-                                            <td>
-                                                <p>Substituição Calços</p>
-                                            </td>
-                                            <td>
-                                                <span class="table_price">14,90€</span>
-                                            </td>
-                                            <td>
-                                                <span class="table_code">1276042</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Substituição Discos</p>
-                                            </td>
-                                            <td>
-                                                <span class="table_price">19,00€</span>
-                                            </td>
-                                            <td>
-                                                <span class="table_code">1276042</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Substituição Manete</p>
-                                            </td>
-                                            <td>
-                                                <span class="table_price">29,00€</span>
-                                            </td>
-                                            <td>
-                                                <span class="table_code">1276042</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h4>Revisão</h4>
-                                            </td>
-                                            <td>
-                                                <p>Limpeza geral, manutenção e afinação</p>
-                                            </td>
-                                            <td>
-                                                <span class="table_price">39,00€</span>
-                                            </td>
-                                            <td>
-                                                <span class="table_code">1276042</span>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </fieldset>
-                            </table>
+        <div class="main">
+            <header>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-4 align-self-center d-flex justify-content-start">
+                            <div class="navbar">
+                                <a href="../index.html">
+                                    <span>
+                                        <img src="../resources/imagens/branding/logotipo.png" alt="Media Markt">
+                                    </span>
+                                    <p>
+                                        Braga
+                                    </p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-4 align-self-center d-flex justify-content-center">
+                            <div id="sidebar_button" class="sidebar_button">
+                                <button id="openNav" onclick="sidebar()" class="fa fa-solid fa-bars"></button>
+                                <button id="closeNav" onclick="sidebar()" class="fa fa-regular fa-circle-xmark"></button>
+                            </div>
+                        </div>
+                        <div class="col-md-4 align-self-center d-flex justify-content-end">
+                            <div class="navbar-content mini-profile">
+                                <div class="login">
+                                    <button id="login-btn">Iniciar Sessão</button>
+                                </div>
+                                <div id="user-info">
+                                    <div>
+                                        <button id="logoutButton">Logout</button>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <p id="user-name"></p>
+                                            <p id="user-code"></p>
+                                        </div>
+                                        <div>
+                                            <a href="../account.html">
+                                                <span>
+                                                    <img id="user-photo" alt="Foto de Usuário">
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12 header_hr">
+                                <hr id="header_hr">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+    
+            <div id="main">
+                <section>
+                    <div class="return">
+                        <a href="../reparacoes.html">
+                            <span class="fa-solid fa-reply"></span>
+                            Voltar
+                        </a>
+                    </div>
+        
+                    <div class="titulos">
+                        <h1>Trotinetes</h1>
+                    </div>
+                </section>
+        
+                <section class="tabela_precos trotinetes">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="table-wrap">
+                                    <table>
+                                        <fieldset>
+                                            <thead>
+                                                <tr>
+                                                    <td colspan="5">
+                                                        <h3>Tabela Geral de Preços</h3>
+                                                    </td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td rowspan="100">
+                                                        <h3>Trotinetes (Apenas <br> Marca Xiaomi)</h3>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td rowspan="5">
+                                                        <h4>Rodas</h4>
+                                                    </td>
+                                                    <td>
+                                                        <p>Substituição Pneu traseiro com camera de ar</p>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_price">34,90€</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_code">1276042</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p>Substituição Pneu dianteiro com camera de ar</p>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_price">39,00€</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_code">1276042</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p>Substituição Pneu Sólido</p>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_price">29,90€</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_code">1276042</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p>Substituição da camera de ar</p>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_price">24,90€</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_code">1276042</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p>Substituição jante traseira</p>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_price">39,00€</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_code">1276042</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td rowspan="3">
+                                                        <h4>Travões</h4>
+                                                    </td>
+                                                    <td>
+                                                        <p>Substituição Calços</p>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_price">14,90€</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_code">1276042</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p>Substituição Discos</p>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_price">19,00€</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_code">1276042</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p>Substituição Manete</p>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_price">29,00€</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_code">1276042</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h4>Revisão</h4>
+                                                    </td>
+                                                    <td>
+                                                        <p>Limpeza geral, manutenção e afinação</p>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_price">39,00€</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="table_code">1276042</span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </fieldset>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
-        </section>
+
+        </div>
 
 
     </div>

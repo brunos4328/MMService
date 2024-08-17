@@ -110,6 +110,7 @@ async function updateUI(user) {
         // Usuário não logado
         document.getElementById('login-btn').style.display = 'block';
         document.getElementById('user-info').style.display = 'none';
+        window.location.href = '../../../login.html';
     }
 }
 
@@ -120,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
       logoutButton.addEventListener("click", () => {
           signOut(auth).then(() => {
               console.log("Usuário deslogado com sucesso.");
-              window.location.href = "../index.html";
+              window.location.href = "../../../index.html";
           }).catch((error) => {
               console.error("Erro ao deslogar:", error);
           });
@@ -137,7 +138,7 @@ auth.onAuthStateChanged(user => {
 
 // Função para redirecionar para a página de login
 function redirectToLogin() {
-    window.location.href = 'login.html';
+    window.location.href = '../../../login.html';
 }
 
 // Evento para o botão de login
