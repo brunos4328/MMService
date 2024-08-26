@@ -6,34 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sign In</title>
-    <link rel="shortcut icon" href="resources/imagens/branding/logotipo.png" type="image/x-icon">
-    <link rel="stylesheet" href="resources/tools/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="resources/css/style.css">
+    <link rel="shortcut icon" href="/resources/imagens/branding/logotipo.png" type="image/x-icon">
+    <link rel="stylesheet" href="/resources/tools/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/resources/css/style.css">
     <script src="https://kit.fontawesome.com/e37222f816.js" crossorigin="anonymous"></script>
-    <script type="module" src="resources/js/app.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.js"></script>
-    <script src="resources/js/button_funciton.js"></script>
-    <script type="module" src="resources/js/admin_auth.js"></script>
-    <script src="../resources/js/button_funciton.js"></script>
-    <script type="module" src="../resources/js/firebase_auth.js"></script>
+    <script src="/resources/js/button_funciton.js"></script>
+    <script type="module" src="/resources/js/app.js"></script>
+    <script type="module" src="/resources/js/admin_auth.js"></script>
+    <script type="module" src="/resources/js/firebase_auth.js"></script>
 </head>
 
 
 <body class="grey">
 
     <div class="page-wrapper transferencias">
-
-        <section class="sidebar_wrapper">
-            <div class="sidebar" id="sidebar" style="display: none;">
-                <a href="../cross_selling.html" class="sidebar_generic">Cross-Selling</a>
-                <a href="../transferencias.html" class="sidebar_generic">Transferências</a>
-                <a href="../departamentos/service.html" class="sidebar_hidden" id="sidebar_service">Service</a>
-                <a href="../departamentos/spv.html" class="sidebar_hidden" id="sidebar_spv">SPV</a>
-                <a href="../departamentos/informatica.html" class="sidebar_hidden" id="sidebar_informatica">Informatica</a>
-                <a href="../departamentos/b2b.html" class="sidebar_hidden" id="sidebar_b2b">B2B</a>
-                <a href="../signin.html" class="sidebar_hidden" id="sidebar_signin">Signin</a>
-            </div>
-        </section>
 
         <div class="main">
             <section>
@@ -42,9 +29,9 @@
                         <div class="row">
                             <div class="col-md-4 align-self-center d-flex justify-content-start">
                                 <div class="navbar">
-                                    <a href="index.html">
+                                    <a href="/index.html">
                                         <span>
-                                            <img src="resources/imagens/branding/logotipo.png" alt="Media Markt">
+                                            <img src="/resources/imagens/branding/logotipo.png" alt="Media Markt">
                                         </span>
                                         <p>
                                             Braga
@@ -65,15 +52,12 @@
                                     </div>
                                     <div id="user-info">
                                         <div>
-                                            <button id="logoutButton">Logout</button>
-                                        </div>
-                                        <div>
                                             <div>
                                                 <p id="user-name"></p>
                                                 <p id="user-code"></p>
                                             </div>
                                             <div>
-                                                <a href="account.html">
+                                                <a href="/account.html">
                                                     <span>
                                                         <img id="user-photo" alt="Foto de Usuário">
                                                     </span>
@@ -100,13 +84,10 @@
             <div id="main">
                 <section>
                     <div class="return">
-                        <a href="transferencias.html">
-                            <span class="fa-solid fa-reply"></span>
+                        <span id="return-btn">
+                            <p class="fa fa-solid fa-reply"></p>
                             Voltar
-                        </a>
-                    </div>
-                    <div class="titulos">
-                        <h1>Sign In</h1>
+                        </span>
                     </div>
                 </section>
         

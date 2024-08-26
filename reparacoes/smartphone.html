@@ -6,29 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Smartphone</title>
-    <link rel="shortcut icon" href="../resources/imagens/branding/logotipo.png" type="image/x-icon">
-    <link rel="stylesheet" href="../resources/tools/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../resources/css/style.css">
+    <link rel="shortcut icon" href="/resources/imagens/branding/logotipo.png" type="image/x-icon">
+    <link rel="stylesheet" href="/resources/tools/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/resources/css/style.css">
     <script src="https://kit.fontawesome.com/e37222f816.js" crossorigin="anonymous"></script>
-    <script src="../resources/js/button_funciton.js"></script>
-    <script type="module" src="../resources/js/firebase_auth.js"></script>
+    <script src="/resources/js/button_funciton.js"></script>
+    <script type="module" src="/resources/js/firebase_auth.js"></script>
 </head>
 
 
 <body class="grey">
     <div class="page-wrapper">
-
-        <section class="sidebar_wrapper">
-            <div class="sidebar" id="sidebar" style="display: none;">
-                <a href="../cross_selling.html" class="sidebar_generic">Cross-Selling</a>
-                <a href="../transferencias.html" class="sidebar_generic">Transferências</a>
-                <a href="../departamentos/service.html" class="sidebar_hidden" id="sidebar_service">Service</a>
-                <a href="../departamentos/spv.html" class="sidebar_hidden" id="sidebar_spv">SPV</a>
-                <a href="../departamentos/informatica.html" class="sidebar_hidden" id="sidebar_informatica">Informatica</a>
-                <a href="../departamentos/b2b.html" class="sidebar_hidden" id="sidebar_b2b">B2B</a>
-                <a href="../signin.html" class="sidebar_hidden" id="sidebar_signin">Signin</a>
-            </div>
-        </section>
 
         <div class="main">
             <section>
@@ -37,9 +25,9 @@
                         <div class="row">
                             <div class="col-md-4 align-self-center d-flex justify-content-start">
                                 <div class="navbar">
-                                    <a href="../index.html">
+                                    <a href="/index.html">
                                         <span>
-                                            <img src="../resources/imagens/branding/logotipo.png" alt="Media Markt">
+                                            <img src="/resources/imagens/branding/logotipo.png" alt="Media Markt">
                                         </span>
                                         <p>
                                             Braga
@@ -55,9 +43,6 @@
                             </div>
                             <div class="col-md-4 align-self-center d-flex justify-content-end">
                                 <div class="navbar-content mini-profile">
-                                    <div class="login">
-                                        <button id="login-btn">Iniciar Sessão</button>
-                                    </div>
                                     <div id="user-info">
                                         <div>
                                             <button id="logoutButton">Logout</button>
@@ -68,7 +53,7 @@
                                                 <p id="user-code"></p>
                                             </div>
                                             <div>
-                                                <a href="../account.html">
+                                                <a href="/account.html">
                                                     <span>
                                                         <img id="user-photo" alt="Foto de Usuário">
                                                     </span>
@@ -95,10 +80,10 @@
             <div id="main">
                 <section>
                     <div class="return">
-                        <a href="../reparacoes.html">
-                            <span class="fa-solid fa-reply"></span>
+                        <span id="return-btn">
+                            <p class="fa fa-solid fa-reply"></p>
                             Voltar
-                        </a>
+                        </span>
                     </div>
         
                     <div class="titulos">
@@ -112,7 +97,7 @@
                             <div class="row shadow">
                                 <div class="col-md-3">
                                     <span>
-                                        <img src="../resources/imagens/logos/apple-logo-380x280.png" alt="Apple">
+                                        <img src="/resources/imagens/logos/apple-logo-380x280.png" alt="Apple">
                                     </span>
                                 </div>
                                 <div class="col-md-6">
@@ -122,7 +107,7 @@
                                     <p>Componentes compatíveis, perde garantia original do equipamento.</p>
                                 </div>
                                 <div class="col-md-3 border-wrapper">
-                                    <a href="smartphone/apple.html">
+                                    <a href="/reparacoes/smartphone/apple.html">
                                         <i class="fa fa-solid fa-list fa-beat-fade-hover"></i>
                                         Tabela de Preços
                                     </a>
@@ -131,7 +116,7 @@
                             <div class="row shadow">
                                 <div class="col-md-3">
                                     <span>
-                                        <img src="../resources/imagens/logos/samsungoutros-480x480.png" alt="Samsung" class="b_img">
+                                        <img src="/resources/imagens/logos/samsungoutros-480x480.png" alt="Samsung" class="b_img">
                                     </span>
                                 </div>
                                 <div class="col-md-6">
@@ -141,7 +126,7 @@
                                     <p>Componentes originais e compatíveis, perde garantia original do equipamento.</p>
                                 </div>
                                 <div class="col-md-3 border-wrapper">
-                                    <a href="smartphone/samsung.html">
+                                    <a href="/reparacoes/smartphone/samsung.html">
                                         <i class="fa fa-solid fa-list fa-beat-fade-hover"></i>
                                         Tabela de Preços
                                     </a>
@@ -150,7 +135,7 @@
                             <div class="row shadow">
                                 <div class="col-md-3">
                                     <span>
-                                        <img src="../resources/imagens/logos/huawei-logo-380x280.png" alt="Huawei">
+                                        <img src="/resources/imagens/logos/huawei-logo-380x280.png" alt="Huawei">
                                     </span>
                                 </div>
                                 <div class="col-md-6">
@@ -160,7 +145,7 @@
                                     <p>Componentes originais e compatíveis, perde garantia original do equipamento.</p>
                                 </div>
                                 <div class="col-md-3 border-wrapper">
-                                    <a href="smartphone/huawei.html">
+                                    <a href="/reparacoes/smartphone/huawei.html">
                                         <i class="fa fa-solid fa-list fa-beat-fade-hover"></i>
                                         Tabela de Preços
                                     </a>
@@ -169,7 +154,7 @@
                             <div class="row shadow">
                                 <div class="col-md-3">
                                     <span>
-                                        <img src="../resources/imagens/logos/oppo-logo-328x232.jpg" alt="oppo">
+                                        <img src="/resources/imagens/logos/oppo-logo-328x232.jpg" alt="oppo">
                                     </span>
                                 </div>
                                 <div class="col-md-6">
@@ -179,7 +164,7 @@
                                     <p>Componentes originais e compatíveis, perde garantia original do equipamento.</p>
                                 </div>
                                 <div class="col-md-3 border-wrapper">
-                                    <a href="smartphone/oppo.html">
+                                    <a href="/reparacoes/smartphone/oppo.html">
                                         <i class="fa fa-solid fa-list fa-beat-fade-hover"></i>
                                         Tabela de Preços
                                     </a>
@@ -188,7 +173,7 @@
                             <div class="row shadow">
                                 <div class="col-md-3">
                                     <span>
-                                        <img src="../resources/imagens/logos/tcl-225x225.png" alt="TCL" class="b_img">
+                                        <img src="/resources/imagens/logos/tcl-225x225.png" alt="TCL" class="b_img">
                                     </span>
                                 </div>
                                 <div class="col-md-6">
@@ -198,7 +183,7 @@
                                     <p>Componentes originais e compatíveis, perde garantia original do equipamento.</p>
                                 </div>
                                 <div class="col-md-3 border-wrapper">
-                                    <a href="smartphone/tcl.html">
+                                    <a href="/reparacoes/smartphone/tcl.html">
                                         <i class="fa fa-solid fa-list fa-beat-fade-hover"></i>
                                         Tabela de Preços
                                     </a>
@@ -207,7 +192,7 @@
                             <div class="row shadow">
                                 <div class="col-md-3">
                                     <span>
-                                        <img src="../resources/imagens/logos/asus-logo-328x242.png" alt="Asus">
+                                        <img src="/resources/imagens/logos/asus-logo-328x242.png" alt="Asus">
                                     </span>
                                 </div>
                                 <div class="col-md-6">
@@ -226,7 +211,7 @@
                             <div class="row shadow">
                                 <div class="col-md-3">
                                     <span>
-                                        <img src="../resources/imagens/logos/xiaomi-logo-328x242.png" alt="Xiaomi">
+                                        <img src="/resources/imagens/logos/xiaomi-logo-328x242.png" alt="Xiaomi">
                                     </span>
                                 </div>
                                 <div class="col-md-6">
@@ -236,7 +221,7 @@
                                     <p>Componentes originais e compatíveis, perde garantia original do equipamento.</p>
                                 </div>
                                 <div class="col-md-3 border-wrapper">
-                                    <a href="smartphone/xiaomi.html">
+                                    <a href="/reparacoes/smartphone/xiaomi.html">
                                         <i class="fa fa-solid fa-list fa-beat-fade-hover"></i>
                                         Tabela de Preços
                                     </a>
@@ -245,7 +230,7 @@
                             <div class="row shadow">
                                 <div class="col-md-3">
                                     <span>
-                                        <img src="../resources/imagens/logos/alcatel-logo-1-328x242.png" alt="Alcatel">
+                                        <img src="/resources/imagens/logos/alcatel-logo-1-328x242.png" alt="Alcatel">
                                     </span>
                                 </div>
                                 <div class="col-md-6">
@@ -255,7 +240,7 @@
                                     <p>Componentes compatíveis, perde garantia original do equipamento.</p>
                                 </div>
                                 <div class="col-md-3 border-wrapper">
-                                    <a href="smartphone/alcatel.html">
+                                    <a href="/reparacoes/smartphone/alcatel.html">
                                         <i class="fa fa-solid fa-list fa-beat-fade-hover"></i>
                                         Tabela de Preços
                                     </a>
@@ -264,7 +249,7 @@
                             <div class="row shadow">
                                 <div class="col-md-3">
                                     <span>
-                                        <img src="../resources/imagens/logos/vodafone-logo-328x242.png" alt="Vodafone">
+                                        <img src="/resources/imagens/logos/vodafone-logo-328x242.png" alt="Vodafone">
                                     </span>
                                 </div>
                                 <div class="col-md-6">

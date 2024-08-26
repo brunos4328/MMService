@@ -87,7 +87,7 @@ header.generic{
     background-color: #fff;
     height:100%;
     width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     z-index: 1;
 }
 
@@ -283,7 +283,7 @@ a.sidebar_hidden{
     text-align: center;
 }
 
-.return a{
+.return span{
     text-align: center;
     border-radius: 100px;
     background: none;
@@ -295,11 +295,12 @@ a.sidebar_hidden{
     font-weight: 500;
 }
 
-.return a:hover{
+.return span:hover{
     transition: 0.5s;
     background-color: #333333;
     border: 2px solid #333333 !important;
     color: #fff;
+    cursor: pointer;
 }
 
 div.download{
@@ -781,8 +782,62 @@ section.tabela_precos .table-wrap span.table_code{
 }
 
 /* 
+Objetivos
+*/
+/* Estilo do Slideshow */
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+}
+
+.mySlides {
+    display: none;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+/* Controles de navegação */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+
+/* 
 Login
 */
+
+section.login {
+    margin-top: 100px;
+}
 
 form.login{
     width: 500px;

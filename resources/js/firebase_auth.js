@@ -59,10 +59,6 @@ async function updateUI(user) {
     if (user) {
       const userDetails = await fetchUserDetails(user.email);
 
-      // Usuário logado
-      document.getElementById('login-btn').style.display = 'none';
-      document.getElementById('user-info').style.display = 'block';
-
         if (userDetails) {
         document.getElementById('user-name').textContent = userDetails.username || user.email || 'Nome do Usuário';
 
@@ -89,11 +85,11 @@ async function updateUI(user) {
           } 
 
           if (userDetails.category === 'B2b') {
-            document.getElementById('sidebar_B2b').style.display = 'inline-block';
+            document.getElementById('sidebar_b2b').style.display = 'inline-block';
             document.getElementById('sidebar_signin').style.display = 'inline-block';
           }
           else {
-          } 
+          }
 
           if (userDetails.category === 'Admin') {
             document.getElementById('sidebar_service').style.display = 'inline-block';
@@ -107,10 +103,7 @@ async function updateUI(user) {
           }  
 
     } else {
-        // Usuário não logado
-        document.getElementById('login-btn').style.display = 'block';
-        document.getElementById('user-info').style.display = 'none';
-        window.location.href = '../../../login.html';
+        window.location.href = '/login.html';
     }
 }
 
@@ -121,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
       logoutButton.addEventListener("click", () => {
           signOut(auth).then(() => {
               console.log("Usuário deslogado com sucesso.");
-              window.location.href = "../../../index.html";
+              window.location.href = "/index.html";
           }).catch((error) => {
               console.error("Erro ao deslogar:", error);
           });
@@ -138,7 +131,7 @@ auth.onAuthStateChanged(user => {
 
 // Função para redirecionar para a página de login
 function redirectToLogin() {
-    window.location.href = '../../../login.html';
+    window.location.href = '/login.html';
 }
 
 // Evento para o botão de login

@@ -10,7 +10,7 @@ function spvFunction() {
     a.style.display = "block";
     a.style.animation = "fade 1s linear forwards";
     b.style.display = "none";
-    c.style.display = "no>removene";
+    c.style.display = "none";
     d.style.display = "none";
     } else {
     a.style.display = "none";
@@ -110,7 +110,6 @@ function eyeFunction() {
 
 function sidebar() {
     var a = document.getElementById("main");
-    var w = document.getElementById("grey");
     var x = document.getElementById("closeNav");
     var y = document.getElementById("sidebar");
     var z = document.getElementById("openNav");
@@ -137,7 +136,6 @@ function sidebar() {
         }, 1000);
         z.style.display = "none";
         x.style.display = "inline-block";
-        w.style.overflow = "hidden";
     } else{
         setTimeout(() => {
             y.style.height = "0";
@@ -145,7 +143,6 @@ function sidebar() {
             x.style.display = "none";
             z.style.display = "inline-block";
             a.style.display = "block"
-            w.style.overflow = "auto";
         }, 50);
     } 
   }
@@ -153,7 +150,6 @@ function sidebar() {
   function longSidebar() {
     var a = document.getElementById("main");
     var c = document.getElementById("img-modal");
-    var w = document.getElementById("grey");
     var x = document.getElementById("closeNav");
     var y = document.getElementById("sidebar");
     var z = document.getElementById("openNav");
@@ -181,7 +177,6 @@ function sidebar() {
         }, 1000);
         z.style.display = "none";
         x.style.display = "inline-block";
-        w.style.overflow = "hidden";
     } else{
         setTimeout(() => {
             y.style.height = "0";
@@ -190,13 +185,38 @@ function sidebar() {
             z.style.display = "inline-block";
             a.style.display = "block"
             c.style.display = "block";
-            w.style.overflow = "auto";
         }, 50);
     } 
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    // Selecionar todos os elementos com as classes .sidebar_generic e .sidebar_hidden
+  function redirectToBack() {
+    window.history.back();
+}
+
+// Evento para o botão de Back
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('return-btn').addEventListener('click', redirectToBack);
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Insere a sidebar
+    const sidebarHTML = `
+        <section class="sidebar_wrapper">
+            <div class="sidebar" id="sidebar" style="display: none;">
+                <a href="/cross_selling.html" class="sidebar_generic">Cross-Selling</a>
+                <a href="/transferencias.html" class="sidebar_generic">Transferências</a>
+                <a href="/objetivos.html" class="sidebar_generic">Objetivos</a>
+                <a href="/departamentos/service.html" class="sidebar_hidden" id="sidebar_service">Service</a>
+                <a href="/departamentos/spv.html" class="sidebar_hidden" id="sidebar_spv">SPV</a>
+                <a href="/departamentos/informatica.html" class="sidebar_hidden" id="sidebar_informatica">Informatica</a>
+                <a href="/departamentos/b2b.html" class="sidebar_hidden" id="sidebar_b2b">B2B</a>
+                <a href="/signin.html" class="sidebar_hidden" id="sidebar_signin">Signin</a>
+            </div>
+        </section>
+    `;
+    document.querySelector(".page-wrapper").insertAdjacentHTML("afterbegin", sidebarHTML);
+
+    // Seleciona todos os elementos com as classes .sidebar_generic e .sidebar_hidden
     const sidebars = document.querySelectorAll('.sidebar_generic, .sidebar_hidden');
 
     sidebars.forEach(sidebar => {
@@ -219,3 +239,4 @@ function sidebar() {
         });
     });
 });
+

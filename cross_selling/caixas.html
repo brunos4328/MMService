@@ -6,28 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Caixas</title>
-    <link rel="shortcut icon" href="../resources/imagens/branding/logotipo.png" type="image/x-icon">
-    <link rel="stylesheet" href="../resources/tools/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../resources/css/style.css">
+    <link rel="shortcut icon" href="/resources/imagens/branding/logotipo.png" type="image/x-icon">
+    <link rel="stylesheet" href="/resources/tools/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/resources/css/style.css">
     <script src="https://kit.fontawesome.com/e37222f816.js" crossorigin="anonymous"></script>
-    <script src="../resources/js/button_funciton.js"></script>
-    <script type="module" src="../resources/js/firebase_auth.js"></script>
+    <script src="/resources/js/button_funciton.js"></script>
+    <script type="module" src="/resources/js/firebase_auth.js"></script>
 </head>
 
 <body class="grey">
     <div class="page-wrapper cross_selling">
-
-        <section class="sidebar_wrapper">
-            <div class="sidebar" id="sidebar" style="display: none;">
-                <a href="../cross_selling.html" class="sidebar_generic">Cross-Selling</a>
-                <a href="../transferencias.html" class="sidebar_generic">Transferências</a>
-                <a href="../departamentos/service.html" class="sidebar_hidden" id="sidebar_service">Service</a>
-                <a href="../departamentos/spv.html" class="sidebar_hidden" id="sidebar_spv">SPV</a>
-                <a href="../departamentos/informatica.html" class="sidebar_hidden" id="sidebar_informatica">Informatica</a>
-                <a href="../departamentos/b2b.html" class="sidebar_hidden" id="sidebar_b2b">B2B</a>
-                <a href="../signin.html" class="sidebar_hidden" id="sidebar_signin">Signin</a>
-            </div>
-        </section>
 
         <div class="main">
             <section>
@@ -36,9 +24,9 @@
                         <div class="row">
                             <div class="col-md-4 align-self-center d-flex justify-content-start">
                                 <div class="navbar">
-                                    <a href="../index.html">
+                                    <a href="/index.html">
                                         <span>
-                                            <img src="../resources/imagens/branding/logotipo.png" alt="Media Markt">
+                                            <img src="/resources/imagens/branding/logotipo.png" alt="Media Markt">
                                         </span>
                                         <p>
                                             Braga
@@ -54,9 +42,6 @@
                             </div>
                             <div class="col-md-4 align-self-center d-flex justify-content-end">
                                 <div class="navbar-content mini-profile">
-                                    <div class="login">
-                                        <button id="login-btn">Iniciar Sessão</button>
-                                    </div>
                                     <div id="user-info">
                                         <div>
                                             <button id="logoutButton">Logout</button>
@@ -67,7 +52,7 @@
                                                 <p id="user-code"></p>
                                             </div>
                                             <div>
-                                                <a href="../account.html">
+                                                <a href="/account.html">
                                                     <span>
                                                         <img id="user-photo" alt="Foto de Usuário">
                                                     </span>
@@ -86,7 +71,7 @@
                                 <div class="col-md-2"></div>
                                 <div class="col-md-4">
                                     <span>
-                                        <img src="../resources/imagens/logos/caixas.png" alt="caixas">
+                                        <img src="/resources/imagens/logos/caixas.png" alt="caixas">
                                     </span>
                                 </div>
                                 <div class="col-md-4">
@@ -111,10 +96,10 @@
             <div id="main">
                 <section>
                     <div class="return">
-                        <a href="../cross_selling.html">
-                            <span class="fa-solid fa-reply"></span>
+                        <span id="return-btn">
+                            <p class="fa fa-solid fa-reply"></p>
                             Voltar
-                        </a>
+                        </span>
                     </div>
                 </section>
         

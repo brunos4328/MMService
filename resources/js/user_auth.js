@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
     onAuthStateChanged(auth, (user) => {
         if (!user) {
             // Se não houver usuário logado, redirecionar para login.html
-            window.location.href = "../../login.html";
+            window.location.href = "/login.html";
         } else {
             console.log("Usuário logado:", user.uid);
             updateUI(user);
@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
         logoutButton.addEventListener("click", () => {
             signOut(auth).then(() => {
                 console.log("Usuário deslogado com sucesso.");
-                window.location.href = "../index.html";
+                window.location.href = "/index.html";
             }).catch((error) => {
                 console.error("Erro ao deslogar:", error);
             });
@@ -270,10 +270,7 @@ async function updateUI(user) {
             console.log("Nenhum detalhe do usuário encontrado.");
         }
     } else {
-        // Usuário não logado
-        document.getElementById('login-btn').style.display = 'block';
-        document.getElementById('user-info').style.display = 'none';
-        window.location.href = "../../login.html";
+        window.location.href = "/login.html";
     }
 }
 // Verifica o estado de autenticação ao carregar a página
