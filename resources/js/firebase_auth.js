@@ -128,13 +128,3 @@ document.addEventListener("DOMContentLoaded", () => {
 auth.onAuthStateChanged(user => {
     updateUI(user);
 });
-
-// Função para redirecionar para a página de login
-function redirectToLogin() {
-    window.location.href = '/login.html';
-}
-
-// Evento para o botão de login
-document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('login-btn').addEventListener('click', redirectToLogin);
-});

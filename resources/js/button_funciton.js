@@ -110,6 +110,7 @@ function eyeFunction() {
 
 function sidebar() {
     var a = document.getElementById("main");
+    var b = document.getElementsByTagName("grey");
     var x = document.getElementById("closeNav");
     var y = document.getElementById("sidebar");
     var z = document.getElementById("openNav");
@@ -136,6 +137,7 @@ function sidebar() {
         }, 1000);
         z.style.display = "none";
         x.style.display = "inline-block";
+        b.style.backgroundColor = "red";
     } else{
         setTimeout(() => {
             y.style.height = "0";
@@ -143,6 +145,7 @@ function sidebar() {
             x.style.display = "none";
             z.style.display = "inline-block";
             a.style.display = "block"
+            b.style.backgroundColor = "red";
         }, 50);
     } 
   }
@@ -239,4 +242,3 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
-
