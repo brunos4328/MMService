@@ -119,16 +119,16 @@ function sidebar() {
     setTimeout(() =>
     {
         x.disabled = false;
-    }, 2000);
+    }, 1500);
 
     z.disabled = true;
     setTimeout(() =>
     {
         z.disabled = false;
-    }, 2000);
+    }, 1500);
 
     if(y.style.display === 'none'){
-        y.style.display = "flex";
+        y.style.display = "inline-flex";
         setTimeout(() => {
             y.style.height = "100%";
         }, 10);
@@ -137,7 +137,7 @@ function sidebar() {
         }, 1000);
         z.style.display = "none";
         x.style.display = "inline-block";
-        b.style.backgroundColor = "red";
+        body.style.background = "red";
     } else{
         setTimeout(() => {
             y.style.height = "0";
@@ -145,7 +145,7 @@ function sidebar() {
             x.style.display = "none";
             z.style.display = "inline-block";
             a.style.display = "block"
-            b.style.backgroundColor = "red";
+            body.style.background = "red";
         }, 50);
     } 
   }
@@ -161,16 +161,16 @@ function sidebar() {
     setTimeout(() =>
     {
         x.disabled = false;
-    }, 2000);
+    }, 1500);
 
     z.disabled = true;
     setTimeout(() =>
     {
         z.disabled = false;
-    }, 2000);
+    }, 1500);
 
     if(y.style.display === 'none'){
-        y.style.display = "flex";
+        y.style.display = "inline-flex";
         c.style.display = "none";
         setTimeout(() => {
             y.style.height = "100%";
@@ -204,8 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener("DOMContentLoaded", function() {
     // Insere a sidebar
     const sidebarHTML = `
-        <section class="sidebar_wrapper">
-            <div class="sidebar" id="sidebar" style="display: none;">
+        <div class="sidebar" id="sidebar" style="display: none;">
                 <a href="/cross_selling.html" class="sidebar_generic">Cross-Selling</a>
                 <a href="/transferencias.html" class="sidebar_generic">Transferências</a>
                 <a href="/objetivos.html" class="sidebar_generic">Objetivos</a>
@@ -215,9 +214,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 <a href="/departamentos/b2b.html" class="sidebar_hidden" id="sidebar_b2b">B2B</a>
                 <a href="/signin.html" class="sidebar_hidden" id="sidebar_signin">Signin</a>
             </div>
-        </section>
     `;
-    document.querySelector(".page-wrapper").insertAdjacentHTML("afterbegin", sidebarHTML);
+    document.querySelector(".sidebar_wrapper").insertAdjacentHTML("afterbegin", sidebarHTML);
 
     // Seleciona todos os elementos com as classes .sidebar_generic e .sidebar_hidden
     const sidebars = document.querySelectorAll('.sidebar_generic, .sidebar_hidden');

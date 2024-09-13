@@ -14,6 +14,42 @@
     <script type="module" src="/resources/js/firebase_auth.js"></script>
     <script type="module" src="/resources/js/table.js"></script>
     <script type="module" src="https://cdn.skypack.dev/twind/shim"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                url: "/resources/php/get_encomendas.php", // Chama o arquivo PHP
+                type: "GET",
+                success: function(data) {
+                    let encomendas = JSON.parse(data); // Converte o JSON para objeto JavaScript
+                    let tableContent = "";
+
+                    // Cria as linhas da tabela com os dados retornados
+                    encomendas.forEach(function(row) {
+                        tableContent += "<tr>" +
+                            "<td>" + row.id + "</td>" +
+                            "<td>" + row.name + "</td>" +
+                            "<td>" + row.data + "</td>" +
+                            "<td>" + row.email + "</td>" +
+                            "<td>" + row.phone + "</td>" +
+                            "<td>" + row.marca + "</td>" +
+                            "<td>" + row.modelo + "</td>" +
+                            "<td>" + row.peca + "</td>" +
+                            "<td>" + row.imei + "</td>" +
+                            "<td>" +
+                            "<a class='btn btn-primary btn-sm' href='#'>Update</a> " +
+                            "<a class='btn btn-danger btn-sm' href='#'>Delete</a>" +
+                            "</td>" +
+                            "</tr>";
+                    });
+
+                    // Insere as linhas da tabela na página HTML
+                    $("#encomendasTable tbody").html(tableContent);
+                }
+            });
+        });
+    </script>
 </head>
 
 
@@ -78,6 +114,10 @@
                     </div>
                 </header>
             </section>
+
+            <section class="sidebar_wrapper">
+
+            </section>
     
             <div id="main">
                 <section>
@@ -94,10 +134,29 @@
                 </section>
 
                 <section class="table-wrapper">
-                    
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>nome</th>
+                                <th>data</th>
+                                <th>email</th>
+                                <th>phone</th>
+                                <th>marca</th>
+                                <th>modelo</th>
+                                <th>peça</th>
+                                <th>imei</th>
+                                <th>action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
                 </section>
             </div>
         </div>
+    </div>   
 </body>
 
 </html>
