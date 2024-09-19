@@ -112,26 +112,10 @@
                                             <div class="modal-content">
                                                 <span class="close">&times;</span>
                                                 <form action="" method="POST">
-                                                    <label for="guia">Guia:</label><br>
-                                                    <input type="text" id="guia" name="guia"><br>
-                                                    <label for="name">Nome:</label><br>
-                                                    <input type="text" id="name" name="name" required><br>
-                                                    <label for="email">Email:</label><br>
-                                                    <input type="email" id="email" name="email"><br>
-                                                    <label for="phone">Telefone:</label><br>
-                                                    <input type="text" id="phone" name="phone" required><br>
-                                                    <label for="marca">Marca:</label><br>
-                                                    <input type="text" id="marca" name="marca" required><br>
-                                                    <label for="modelo">Modelo:</label><br>
-                                                    <input type="text" id="modelo" name="modelo" required><br>
-                                                    <label for="peca">Peça:</label><br>
-                                                    <input type="text" id="peca" name="peca" required><br>
-                                                    <label for="preco">Preco:</label><br>
-                                                    <input type="text" id="preco" name="preco"><br>
-                                                    <label for="pvp">PVP:</label><br>
-                                                    <input type="text" id="pvp" name="pvp"><br>
-                                                    <label for="imei">IMEI:</label><br>
-                                                    <input type="text" id="imei" name="imei"><br><br>
+                                                    <label for="dataInicio">Data Inicial:</label><br>
+                                                    <input type="date" id="dataInicio" name="dataInicio" required><br>
+                                                    <label for="dataFinal">Data Final:</label><br>
+                                                    <input type="date" id="dataFinal" name="dataFinal"><br><br>
                                                     <input type="submit" name="submit" value="Adicionar">
                                                 </form>
                                             </div>
@@ -143,26 +127,10 @@
                                                     <span class="close" onclick="closeEditModal()">&times;</span>
                                                     <form action="" method="POST">
                                                         <input type="hidden" id="edit-id" name="id"> <!-- Hidden field to store the ID of the record being edited -->
-                                                        <label for="edit-guia">Guia:</label><br>
-                                                        <input type="text" id="edit-guia" name="guia"><br>
-                                                        <label for="edit-name">Nome:</label><br>
-                                                        <input type="text" id="edit-name" name="name"><br>
-                                                        <label for="edit-email">Email:</label><br>
-                                                        <input type="email" id="edit-email" name="email"><br>
-                                                        <label for="edit-phone">Telefone:</label><br>
-                                                        <input type="text" id="edit-phone" name="phone"><br>
-                                                        <label for="edit-marca">Marca:</label><br>
-                                                        <input type="text" id="edit-marca" name="marca"><br>
-                                                        <label for="edit-modelo">Modelo:</label><br>
-                                                        <input type="text" id="edit-modelo" name="modelo"><br>
-                                                        <label for="edit-peca">Peça:</label><br>
-                                                        <input type="text" id="edit-peca" name="peca"><br>
-                                                        <label for="edit-preco">Preco:</label><br>
-                                                        <input type="text" id="edit-preco" name="preco"><br>
-                                                        <label for="edit-pvp">PVP:</label><br>
-                                                        <input type="text" id="edit-pvp" name="pvp"><br>
-                                                        <label for="edit-imei">IMEI:</label><br>
-                                                        <input type="text" id="edit-imei" name="imei"><br><br>
+                                                        <label for="edit-dataInicio">Data Inicial:</label><br>
+                                                        <input type="date" id="edit-dataInicio" name="dataInicio"><br>
+                                                        <label for="edit-dataFinal">dataFinal:</label><br>
+                                                        <input type="date" id="edit-dataFinal" name="dataFinal"><br><br>
                                                         <input type="submit" name="update" value="Update">
                                                     </form>
                                                 </div>
@@ -171,17 +139,8 @@
                                     </div>
                                     <thead>
                                         <tr>
-                                            <th>guia</th>
-                                            <th>nome</th>
-                                            <th>data</th>
-                                            <th>email</th>
-                                            <th>phone</th>
-                                            <th>marca</th>
-                                            <th>modelo</th>
-                                            <th>peça</th>
-                                            <th>preço</th>
-                                            <th>pvp</th>
-                                            <th>imei</th>
+                                            <th>data inicial</th>
+                                            <th>data final</th>
                                             <th>action</th>
                                         </tr>
                                     </thead>
@@ -203,20 +162,11 @@
 
                                             // Inserir dados no banco de dados ao enviar o formulário
                                             if (isset($_POST['submit'])) {
-                                                $guia = $_POST['guia'];
-                                                $name = $_POST['name'];
-                                                $email = $_POST['email'];
-                                                $phone = $_POST['phone'];
-                                                $marca = $_POST['marca'];
-                                                $modelo = $_POST['modelo'];
-                                                $peca = $_POST['peca'];
-                                                $preco = $_POST['preco'];
-                                                $pvp = $_POST['pvp'];
-                                                $imei = $_POST['imei'];
-                                                $currentDate = date('Y-m-d H:i:s'); // Capturar a data e hora atual
+                                                $dataInicio = $_POST['dataInicio'];
+                                                $dataFinal = $_POST['dataFinal'];
 
-                                                $sql_insert = "INSERT INTO if0_36783497_mmservice.encomendas (guia, name, data, email, phone, marca, modelo, peca, preco, pvp, imei)
-                                                            VALUES ('$guia', '$name', '$currentDate', '$email', '$phone', '$marca', '$modelo', '$peca', '$preco', '$pvp', '$imei')";
+                                                $sql_insert = "INSERT INTO if0_36783497_mmservice.encomendasData (dataInicio, dataFinal)
+                                                            VALUES ('$dataInicio', '$dataFinal')";
 
                                                 if ($conn->query($sql_insert) === TRUE) {
                                                     echo "Nova encomenda adicionada com sucesso.";
@@ -226,34 +176,25 @@
                                                 }
                                             }
 
-                                            // Execute a consulta SQL
-                                            $sql = "SELECT id, guia, name, data, email, phone, marca, modelo, peca, preco, pvp, imei FROM if0_36783497_mmservice.encomendas";
-                                            $result = $conn->query($sql);
+                                            // Consulta para pegar as datas de encomendas
+                                            $sql_dates = "SELECT id, dataInicio, dataFinal FROM if0_36783497_mmservice.encomendasData";
+                                            $resultDate = $conn->query($sql_dates);
 
                                             // Verifique se a consulta foi executada corretamente
-                                            if (!$result) {
+                                            if (!$resultDate) {
                                                 die("Erro ao executar a consulta: " . $conn->error);
                                             } else {
-                                                echo "Número de registros encontrados: " . $result->num_rows . "<br>";
+                                                echo "Número de registros encontrados: " . $resultDate->num_rows . "<br>";
                                             }
 
                                             // Verifique se há registros retornados e exiba-os
-                                            if ($result->num_rows > 0) {
-                                                while ($row = $result->fetch_assoc()) {
+                                            if ($resultDate->num_rows > 0) {
+                                                while ($row = $resultDate->fetch_assoc()) {
                                                     echo "<tr>";
-                                                    echo "<td>" . $row['guia'] . "</td>";
-                                                    echo "<td>" . $row['name'] . "</td>";
-                                                    echo "<td>" . $row['data'] . "</td>";
-                                                    echo "<td>" . $row['email'] . "</td>";
-                                                    echo "<td>" . $row['phone'] . "</td>";
-                                                    echo "<td>" . $row['marca'] . "</td>";
-                                                    echo "<td>" . $row['modelo'] . "</td>";
-                                                    echo "<td>" . $row['peca'] . "</td>";
-                                                    echo "<td>" . $row['preco'] . "</td>";
-                                                    echo "<td>" . $row['pvp'] . "</td>";
-                                                    echo "<td>" . $row['imei'] . "</td>";
+                                                    echo "<td>" . $row['dataInicio'] . "</td>";
+                                                    echo "<td>" . $row['dataFinal'] . "</td>";
                                                     echo "<td>
-                                                            <button type='button' class='btn btn-primary' onclick='openEditModal(\"" . $row['id'] . "\", \"" . $row['guia'] . "\", \"" . $row['name'] . "\", \"" . $row['email'] . "\", \"" . $row['phone'] . "\", \"" . $row['marca'] . "\", \"" . $row['modelo'] . "\", \"" . $row['peca'] . "\", \"" . $row['preco'] . "\", \"" . $row['pvp'] . "\", \"" . $row['imei'] . "\")'>Edit</button>
+                                                            <button type='button' class='btn btn-primary' onclick='openEditModalData(" . $row['id'] . ", \"" . $row['dataInicio'] . "\", \"" . $row['dataFinal'] . "\")'>Edit</button>
                                                             <form method='post' action='' style='display:inline-block;'>
                                                                 <input type='hidden' name='id' value='" . $row['id'] . "'>
                                                                 <button type='submit' name='delete' class='btn btn-danger' onclick='return confirm(\"Are you sure you want to delete this record?\");'>Delete</button>
@@ -271,7 +212,7 @@
                                                 $id = $_POST['id']; // Recebe o 'id' em vez de 'guia'
                                                 
                                                 // Delete o registro do banco de dados usando o 'id'
-                                                $sql_delete = "DELETE FROM if0_36783497_mmservice.encomendas WHERE id = ?";
+                                                $sql_delete = "DELETE FROM if0_36783497_mmservice.encomendasData WHERE id = ?";
                                                 
                                                 $stmt = $conn->prepare($sql_delete);
                                                 $stmt->bind_param("i", $id); // Tipo de dado 'i' para 'id' inteiro
@@ -287,26 +228,17 @@
                                                 $stmt->close();
                                             }
 
-
                                             // Handle the update operation
                                             if (isset($_POST['update'])) {
                                                 $id = $_POST['id']; // This is the identifier of the record being updated
-                                                $guia = $_POST['guia']; 
-                                                $name = $_POST['name'];
-                                                $email = $_POST['email'];
-                                                $phone = $_POST['phone'];
-                                                $marca = $_POST['marca'];
-                                                $modelo = $_POST['modelo'];
-                                                $peca = $_POST['peca'];
-                                                $preco = $_POST['preco'];
-                                                $pvp = $_POST['pvp'];
-                                                $imei = $_POST['imei'];
+                                                $dataInicio = $_POST['dataInicio'];
+                                                $dataFinal = $_POST['dataFinal'];
                                                 
                                                 // Update the record in the database
-                                                $sql_update = "UPDATE if0_36783497_mmservice.encomendas SET guia=?, name=?, email=?, phone=?, marca=?, modelo=?, peca=?, preco=?, pvp=?, imei=? WHERE id=?";
+                                                $sql_update = "UPDATE if0_36783497_mmservice.encomendasData SET dataInicio=?, dataFinal=? WHERE id=?";
                                                 
                                                 $stmt = $conn->prepare($sql_update);
-                                                $stmt->bind_param("ssssssssssi", $guia, $name, $email, $phone, $marca, $modelo, $peca, $preco, $pvp, $imei, $id);
+                                                $stmt->bind_param("ssi", $dataInicio, $dataFinal, $id); // 'ssi' -> string, string, integer
                                                 
                                                 if ($stmt->execute()) {
                                                     echo "Registro atualizado com sucesso.";
@@ -318,6 +250,7 @@
                                                 
                                                 $stmt->close();
                                             }
+                                            
 
                                             // Feche a conexão
                                             $conn->close();
@@ -332,5 +265,6 @@
         </div>
     </div>   
 </body>
+
 
 </html>

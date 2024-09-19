@@ -824,6 +824,7 @@ section.table-wrapper{
         overflow: auto;
         background-color: rgba(0,0,0,0.4);
     }
+
     .modal-content {
         background-color: #fefefe;
         margin: 15% auto;
@@ -831,17 +832,23 @@ section.table-wrapper{
         border: 1px solid #888;
         width: 80%;
     }
+
     .close {
         color: #aaa;
         float: right;
         font-size: 28px;
         font-weight: bold;
     }
+
     .close:hover,
     .close:focus {
         color: black;
         text-decoration: none;
         cursor: pointer;
+    }
+
+    input{
+        border: 1px solid black;
     }
 }
 

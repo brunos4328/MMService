@@ -1,4 +1,5 @@
 var modal = document.getElementById("encomendasModal");
+var editModal = document.getElementById("editModal");
 var btn = document.getElementById("openModal");
 var span = document.getElementsByClassName("close")[0];
 
@@ -16,5 +17,11 @@ span.onclick = function() {
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
+    }
+}
+
+window.onclick = function(event) {
+    if (event.target == editModal) {
+        editModal.style.display = "none";
     }
 }

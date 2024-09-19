@@ -215,6 +215,42 @@ function sidebar() {
     }
   }
 
+  function openEditModal(id, guia, name, email, phone, marca, modelo, peca, preco, pvp, imei) {
+    
+    // Defina os valores dos campos do formulário de edição
+    document.getElementById('edit-id').value = id;
+    document.getElementById('edit-guia').value = guia;
+    document.getElementById('edit-name').value = name;
+    document.getElementById('edit-email').value = email;
+    document.getElementById('edit-phone').value = phone;
+    document.getElementById('edit-marca').value = marca;
+    document.getElementById('edit-modelo').value = modelo;
+    document.getElementById('edit-peca').value = peca;
+    document.getElementById('edit-preco').value = preco;
+    document.getElementById('edit-pvp').value = pvp;
+    document.getElementById('edit-imei').value = imei;
+
+    // Exibe o modal
+    document.getElementById('editModal').style.display = 'block';
+}
+
+function openEditModalData(id, dataInicio, dataFinal) {
+
+    // Abre o modal de edição
+    document.getElementById('editModal').style.display = 'block';
+
+    // Preenche os campos do modal com os valores existentes
+    document.getElementById('edit-id').value = id;
+    document.getElementById('edit-dataInicio').value = dataInicio;
+    document.getElementById('edit-dataFinal').value = dataFinal;
+}
+
+function closeEditModal() {
+    var modal = document.getElementById('editModal');
+    modal.style.display = "none";
+}
+
+
   function redirectToBack() {
     window.history.back();
 }
